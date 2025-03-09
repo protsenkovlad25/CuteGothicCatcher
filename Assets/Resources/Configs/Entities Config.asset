@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49830bff5e7632644a81029a3b544eff, type: 3}
+  m_Name: Entities Config
+  m_EditorClassIdentifier: 
+  m_EntityDatas:
+  - m_TextId: heart
+    m_Sprite: {fileID: 21300000, guid: 9f23ff97e1b0d1947a621e76f7b38c7c, type: 3}
+    m_EntityType: 1
+    m_Prefab: {fileID: 2375790359394204288, guid: bc29614102f23ef4299dc662e82186ed, type: 3}
+    m_Spawn: {fileID: 584077129694342883, guid: 05f8876e591f48744bdf3ec33ae7deb6, type: 3}
+    m_Health: {fileID: 1290806073828794158, guid: f7d5ed0dca9a5ce4894bf32cae344fa1, type: 3}
+    m_Movement: {fileID: 2431343783027552026, guid: 34bcb45892b5552409711d2a7a9dcef6, type: 3}
+    m_Collision: {fileID: 5669940615379443219, guid: 34b9d298adeee6d4397f675ddc7b6173, type: 3}
+    m_Clickability: {fileID: 6385861506604156482, guid: a701bcad8b02a8a469723f39e2554f80, type: 3}
+  - m_TextId: scull
+    m_Sprite: {fileID: 21300000, guid: 3ab3eb434b193454ea3b26be863579d3, type: 3}
+    m_EntityType: 2
+    m_Prefab: {fileID: 1903279134507654420, guid: fbede8fa1811d5f44891b7b826d63a79, type: 3}
+    m_Spawn: {fileID: 584077129694342883, guid: eb6cf97fedf73e24b8cfc01b9fb6eff2, type: 3}
+    m_Health: {fileID: 1290806073828794158, guid: ffd9cdbd34ae1e447a473c6ff8e929e2, type: 3}
+    m_Movement: {fileID: 2431343783027552026, guid: 38ffa0787974ba140b1edd79dd2ea4ec, type: 3}
+    m_Collision: {fileID: -3929656451091517367, guid: 7a016982819fcd347b39d2f7cd6a0891, type: 3}
+    m_Clickability: {fileID: -4514382713636804910, guid: 7462f4ed01100064184dc82870b063ad, type: 3}
+  - m_TextId: tombstone
+    m_Sprite: {fileID: 21300000, guid: 1237cf211d7931a45a50ec4f7b2a703d, type: 3}
+    m_EntityType: 4
+    m_Prefab: {fileID: 7782156482497397148, guid: 9329a046e23d0ca4abb14daed9efb72a, type: 3}
+    m_Spawn: {fileID: 1472279452063776411, guid: 53eb4a23c076d8847b82df8fe60411f4, type: 3}
+    m_Health: {fileID: 2244749952770576150, guid: db9769a9ddbcdcd4b91d9ad00f8b1884, type: 3}
+    m_Movement: {fileID: -6661638865156097625, guid: cfa8e77f52de1b748818a90f8baee219, type: 3}
+    m_Collision: {fileID: -3412658871842372138, guid: 1cb885e255ebbd840885958e6608801a, type: 3}
+    m_Clickability: {fileID: 6845503984018057738, guid: aa8ec8c08b03c5944853e4dfb662554f, type: 3}
+  - m_TextId: web
+    m_Sprite: {fileID: 21300000, guid: dcae195ee9362c346b60010ea843146b, type: 3}
+    m_EntityType: 3
+    m_Prefab: {fileID: 5826720472294736784, guid: 6df6525227b8fe542ba91a5f4b7ea2ec, type: 3}
+    m_Spawn: {fileID: 6211658210504161093, guid: 7615eac1df52d6e4bae1b402168d9b83, type: 3}
+    m_Health: {fileID: 4793784603427752937, guid: 27c5f972969adf14fbc7a0722a49a4ef, type: 3}
+    m_Movement: {fileID: 3921273616586051391, guid: a9f048f8c3796a442af7e398e81ba511, type: 3}
+    m_Collision: {fileID: 3016924403391331795, guid: bd857786e0d33cb4586fa71d3fca3d50, type: 3}
+    m_Clickability: {fileID: -5450733273382772604, guid: c225cceb8af162a47a80942f11fda447, type: 3}
