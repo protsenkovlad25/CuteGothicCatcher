@@ -48,6 +48,7 @@ namespace CuteGothicCatcher.Core
         private T CreateObject(bool isNew = false)
         {
             T clone = Object.Instantiate(m_Prefab, Vector3.zero, Quaternion.identity);
+            clone.OnDisabled += Return;
 
             clone.transform.SetParent(m_Parent);
             clone.gameObject.SetActive(false);
@@ -139,6 +140,10 @@ namespace CuteGothicCatcher.Core
 
                 OnReturned?.Invoke(obj);
             }
+        }
+        public void Return(IPoolable poolable)
+        {
+            Return(poolable as T);
         }
         public void ReturnAll()
         {

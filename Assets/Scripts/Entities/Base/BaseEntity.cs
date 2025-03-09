@@ -6,6 +6,8 @@ namespace CuteGothicCatcher.Entities
 {
     public class BaseEntity : MonoBehaviour, IIniting, IPoolable, IDamageable
     {
+        public event IPoolable.Disabled OnDisabled;
+
         #region SerializeFields
         [SerializeField] private Rigidbody2D m_Rigidbody;
         [SerializeField] private Collider2D m_LogicCollider;
@@ -120,6 +122,10 @@ namespace CuteGothicCatcher.Entities
             m_Data.Movement?.DisableMove();
             m_Data.Collision?.DisableCollision();
             m_Data.Clickability?.DisableClickability();
+        }
+        public virtual void Disable()
+        {
+            OnDisabled?.Invoke(this);
         }
         #endregion
 

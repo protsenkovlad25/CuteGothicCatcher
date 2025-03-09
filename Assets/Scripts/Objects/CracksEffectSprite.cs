@@ -9,6 +9,8 @@ namespace CuteGothicCatcher.Objects
     {
         private enum CrackVisual { OneByOne, GraduallyEveryone, Combined }
 
+        public event IPoolable.Disabled OnDisabled;
+
         [SerializeField] private CrackVisual m_Visual;
         [SerializeField] private List<SpriteRenderer> m_CrackSprites;
 
@@ -73,6 +75,10 @@ namespace CuteGothicCatcher.Objects
                 crack.DOFade(0, 0);
                 crack.gameObject.SetActive(false);
             }
+        }
+        public void Disable()
+        {
+            OnDisabled?.Invoke(this);
         }
     }
 }

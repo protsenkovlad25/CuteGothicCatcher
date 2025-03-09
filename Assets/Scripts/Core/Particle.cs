@@ -7,6 +7,7 @@ namespace CuteGothicCatcher.Core
     public class Particle : MonoBehaviour, IPoolable
     {
         public System.Action OnParticleFinished;
+        public event IPoolable.Disabled OnDisabled;
 
         [SerializeField] private List<ParticleSystem> m_Particles;
 
@@ -39,6 +40,10 @@ namespace CuteGothicCatcher.Core
         }
         public void OnDeactivate()
         {
+        }
+        public void Disable()
+        {
+            OnDisabled?.Invoke(this);
         }
 
         private void Update()
