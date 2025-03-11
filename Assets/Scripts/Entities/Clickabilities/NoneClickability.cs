@@ -5,6 +5,8 @@ namespace CuteGothicCatcher.Entities.Components
 {
     public class NoneClickability : MonoBehaviour, IClickable
     {
+        public event IClickable.Clicked OnClicked;
+
         public void Init(BaseEntity self)
         {
         }

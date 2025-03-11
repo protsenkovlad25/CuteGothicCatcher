@@ -6,6 +6,8 @@ namespace CuteGothicCatcher.Entities.Components
 {
     public class DestroyClickability : MonoBehaviour, IClickable
     {
+        public event IClickable.Clicked OnClicked;
+
         [SerializeField] private float m_Damage;
         [SerializeField] private CracksEffectSprite m_CrackEffectPrefab;
 
@@ -19,6 +21,8 @@ namespace CuteGothicCatcher.Entities.Components
         public void Click(BaseEntity self)
         {
             self.TakeDamage(m_Damage);
+
+            OnClicked?.Invoke();
         }
 
         public void DisableClickability()

@@ -162,5 +162,18 @@ namespace CuteGothicCatcher.Core
                     m_Objects.Remove(m_Objects.ElementAt(i).Key);
             }
         }
+        public void ClearPool()
+        {
+            ReturnAll();
+
+            for (int i = m_Objects.Count - 1; i >= 0; i--)
+                Object.Destroy(m_Objects.ElementAt(i).Key.gameObject);
+
+            for (int i = m_NewObjects.Count - 1; i >= 0; i--)
+                Object.Destroy(m_NewObjects.ElementAt(i).gameObject);
+
+            m_Objects.Clear();
+            m_NewObjects.Clear();
+        }
     }
 }

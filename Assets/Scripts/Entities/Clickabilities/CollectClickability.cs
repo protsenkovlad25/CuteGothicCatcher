@@ -6,26 +6,36 @@ namespace CuteGothicCatcher.Entities.Components
 {
     public class CollectClickability : MonoBehaviour, IClickable
     {
-        [SerializeField] private float m_CollectPoints;
-        [SerializeField] private Particle m_CollectParticlePrefab;
+        public event IClickable.Clicked OnClicked;
 
-        private Pool<Particle> m_PoolParticle;
+        [SerializeField] private float m_CollectPoints;
+        [SerializeField] private Particle m_PositiveCollectParticlePrefab;
+        [SerializeField] private Particle m_NegativeCollectParticlePrefab;
+
+        private Pool<Particle> m_PositivePoolParticle;
+        private Pool<Particle> m_NegativePoolParticle;
+
+        public float CollectPoints => m_CollectPoints;
 
         public void Init(BaseEntity self)
         {
-            InitPoolParticle();
+            InitPoolsParticle();
         }
 
-        private void InitPoolParticle()
+        private void InitPoolsParticle()
         {
-            m_PoolParticle = new Pool<Particle>(m_CollectParticlePrefab, 3, transform);
+            m_PositivePoolParticle = new Pool<Particle>(m_PositiveCollectParticlePrefab, 3, transform);
+            m_NegativePoolParticle = new Pool<Particle>(m_NegativeCollectParticlePrefab, 3, transform);
 
-            foreach (var particle in m_PoolParticle.ObjectsList)
+            foreach (var particle in m_PositivePoolParticle.ObjectsList)
+                particle.OnParticleFinished += particle.Disable;
+
+            foreach (var particle in m_NegativePoolParticle.ObjectsList)
                 particle.OnParticleFinished += particle.Disable;
         }
-        private void SetCollectParticle(Vector3 pos)
+        private void SpawnCollectParticle(Vector3 pos)
         {
-            Particle particle = m_PoolParticle.Take();
+            Particle particle = m_CollectPoints < 0 ? m_NegativePoolParticle.Take() : m_PositivePoolParticle.Take();
 
             particle.transform.position = pos;
             particle.Play();
@@ -33,9 +43,16 @@ namespace CuteGothicCatcher.Entities.Components
 
         public void Click(BaseEntity self)
         {
-            SetCollectParticle(self.transform.position);
+            SpawnCollectParticle(self.transform.position);
 
             self.Disable();
+
+            OnClicked?.Invoke();
+        }
+
+        public void SetCollectPoints(float points)
+        {
+            m_CollectPoints += points;
         }
 
         public void DisableClickability()

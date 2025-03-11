@@ -45,4 +45,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_CollectPoints: 0
-  m_CollectParticlePrefab: {fileID: 5963810499876012307, guid: 5cbfe2299d19e1141b9d4eeb4740b68c, type: 3}
+  m_PositiveCollectParticlePrefab: {fileID: 5963810499876012307, guid: 5cbfe2299d19e1141b9d4eeb4740b68c, type: 3}
+  m_NegativeCollectParticlePrefab: {fileID: 6273358007428299945, guid: 8e568bd6ae510724e91f86167881019c, type: 3}

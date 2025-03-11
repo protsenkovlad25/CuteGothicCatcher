@@ -48,6 +48,7 @@ namespace CuteGothicCatcher.Entities.Components
                     entity.Rigidbody.velocity *= m_SlowMultiplier;
 
                     SetSlowEffectSprite(entity);
+                    ChangeCollectability(entity, true);
                 }
             }
         }
@@ -61,6 +62,7 @@ namespace CuteGothicCatcher.Entities.Components
                     entity.Rigidbody.velocity /= m_SlowMultiplier;
 
                     RemoveSlowEffectSprite(entity);
+                    ChangeCollectability(entity, false);
                 }
             }
         }
@@ -82,6 +84,19 @@ namespace CuteGothicCatcher.Entities.Components
         private void UpdateCracks(float curHealth, float maxHealth)
         {
             m_CrackEffect.UpdateCracks(curHealth, maxHealth);
+        }
+
+        private void ChangeCollectability(BaseEntity entity, bool isEnter)
+        {
+            if (entity.Data.Clickability is CollectClickability)
+            {
+                float points = 0;
+
+                CollectClickability clickability = entity.Data.Clickability as CollectClickability;
+                
+                if ((isEnter && clickability.CollectPoints < 0) || (!isEnter && clickability.CollectPoints >= 0))
+                    clickability.SetCollectPoints(clickability.CollectPoints * -2);
+            }
         }
 
         private void SetSlowEffectSprite(BaseEntity entity)
@@ -106,11 +121,19 @@ namespace CuteGothicCatcher.Entities.Components
         private void CheckTriggeredEntities()
         {
             for (int i = m_TriggeredEntities.Count - 1; i >= 0; i--)
+            {
+                if (m_TriggeredEntities[i] == null)
+                {
+                    m_TriggeredEntities.RemoveAt(i);
+                    continue;
+                }
                 if (!m_TriggeredEntities[i].gameObject.activeSelf)
                 {
                     RemoveSlowEffectSprite(m_TriggeredEntities[i]);
+                    ChangeCollectability(m_TriggeredEntities[i], false);
                     m_TriggeredEntities.RemoveAt(i);
                 }
+            }
         }
         private bool CheckCollider(Collider2D collider, out BaseEntity entity)
         {
