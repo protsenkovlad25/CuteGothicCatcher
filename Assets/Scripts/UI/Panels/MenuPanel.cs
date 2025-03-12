@@ -12,9 +12,10 @@ namespace CuteGothicCatcher.UI
         [SerializeField] private List<Button> m_Buttons;
         [SerializeField] private VerticalLayoutGroup m_Layout;
 
-        [Header("Anim Times")]
+        [Header("Anim Values")]
         [SerializeField] private float m_ButtonsOpenTime;
         [SerializeField] private float m_ButtonsCloseTime;
+        [SerializeField] private float m_Padding;
 
         private List<Vector2> m_StartButtonsPos;
 
@@ -35,7 +36,7 @@ namespace CuteGothicCatcher.UI
                 rectTransform = button.GetComponent<RectTransform>();
                 m_StartButtonsPos.Add(rectTransform.anchoredPosition);
 
-                rectTransform.anchoredPosition = new Vector2(-rectTransform.sizeDelta.x, rectTransform.anchoredPosition.y);
+                rectTransform.anchoredPosition = new Vector2(-(rectTransform.sizeDelta.x + m_Padding), rectTransform.anchoredPosition.y);
             }
         }
 
@@ -69,7 +70,7 @@ namespace CuteGothicCatcher.UI
             {
                 rectTransform = m_Buttons[i].GetComponent<RectTransform>();
 
-                closeSeq.Append(rectTransform.DOAnchorPosX(-rectTransform.sizeDelta.x, m_ButtonsCloseTime));
+                closeSeq.Append(rectTransform.DOAnchorPosX(-(rectTransform.sizeDelta.x + m_Padding), m_ButtonsCloseTime));
 
                 if (i == m_Buttons.Count - 1)
                     closeSeq.AppendInterval(m_ButtonsCloseTime);
