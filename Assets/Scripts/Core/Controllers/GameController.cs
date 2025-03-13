@@ -27,9 +27,9 @@ namespace CuteGothicCatcher.Core.Controllers
             m_IsGameActive = true;
 
             m_EntitiesController.SpawnEntities(EntityType.Heart, 10);
-            //m_EntitiesController.SpawnEntities(EntityType.Scull, 10);
+            m_EntitiesController.SpawnEntities(EntityType.Scull, 10);
             //m_EntitiesController.SpawnEntities(EntityType.Web, 5);
-            m_EntitiesController.SpawnEntities(EntityType.Tombstone, 5);
+            //m_EntitiesController.SpawnEntities(EntityType.Tombstone, 5);
         }
         public void StopGame()
         {

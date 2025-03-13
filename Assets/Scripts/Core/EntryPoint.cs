@@ -9,6 +9,7 @@ namespace CuteGothicCatcher.Core
         private void Awake()
         {
             Time.timeScale = 1;
+            Application.targetFrameRate = 60;
 
             MainCamera.Init();
 
