@@ -1,27 +1,44 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using Newtonsoft.Json;
+using System.IO;
+using CuteGothicCatcher.Core.Player;
 
 namespace CuteGothicCatcher.Core.Controllers
 {
-    public class PlayerController : Controller
+    public static class PlayerController
     {
-        private PlayerData m_PlayerData;
+        private static readonly string m_FilePath = $"{Application.persistentDataPath}/PlayerData.json";
 
-        public PlayerData PlayerData => m_PlayerData;
+        private static PlayerData m_PlayerData;
 
-        public override void Init()
+        public static PlayerData PlayerData => m_PlayerData;
+
+        public static void Init()
         {
             LoadPlayer();
         }
 
-        public void LoadPlayer()
+        public static void NewPlayer()
         {
-
+            m_PlayerData = new PlayerData();
+            SavePlayer();
         }
-        public void SavePlayer()
-        {
 
+        public static void LoadPlayer()
+        {
+            if (File.Exists(m_FilePath))
+            {
+                string jsonFile = File.ReadAllText(m_FilePath);
+
+                m_PlayerData = JsonConvert.DeserializeObject<PlayerData>(jsonFile);
+                m_PlayerData.Load();
+            }
+            else NewPlayer();
+        }
+        public static void SavePlayer()
+        {
+            string jsonFile = JsonConvert.SerializeObject(m_PlayerData);
+            File.WriteAllText(m_FilePath, jsonFile);
         }
     }
 }

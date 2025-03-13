@@ -9,6 +9,7 @@ namespace CuteGothicCatcher.UI
     {
         [Header("Objects")]
         [SerializeField] private Button m_PauseButton;
+        [SerializeField] private ItemsPanel m_ItemsPanel;
 
         [Header("Anim Times")]
         [SerializeField] private float m_OpenTime;
@@ -19,6 +20,8 @@ namespace CuteGothicCatcher.UI
         public override void Init()
         {
             base.Init();
+
+            m_ItemsPanel.Init();
 
             RectTransform rectTransform = m_PauseButton.GetComponent<RectTransform>();
             m_StartButtonPos = rectTransform.anchoredPosition;

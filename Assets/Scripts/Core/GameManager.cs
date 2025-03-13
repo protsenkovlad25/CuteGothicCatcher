@@ -19,6 +19,8 @@ namespace CuteGothicCatcher.Core
         {
             PoolResources.LoadObjects();
 
+            PlayerController.Init();
+
             m_GameController.Init();
             m_EntitiesController.Init();
             m_InterfaceController.Init();

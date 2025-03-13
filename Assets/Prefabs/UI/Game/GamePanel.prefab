@@ -51,6 +51,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_PauseButton: {fileID: 8586352424374830273}
+  m_ItemsPanel: {fileID: 2698754805257008343}
   m_OpenTime: 0.1
   m_CloseTime: 0.1
 --- !u!1001 &4928705629849941796
@@ -155,6 +156,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5887335985611855366, guid: 3da305c4490c7d74c87bccb0b1419166, type: 3}
   m_PrefabInstance: {fileID: 4928705629849941796}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2698754805257008343 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6995674181397677043, guid: 3da305c4490c7d74c87bccb0b1419166, type: 3}
+  m_PrefabInstance: {fileID: 4928705629849941796}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63e6caeb38a7d624c98d664d0edacac6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8926409735466554310
 PrefabInstance:
   m_ObjectHideFlags: 0

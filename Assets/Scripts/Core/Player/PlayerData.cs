@@ -3,26 +3,29 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-[Serializable]
-public class PlayerData
+namespace CuteGothicCatcher.Core.Player
 {
-    [SerializeField] private Dictionary<EntityType, int> m_Items;
-
-    public Dictionary<EntityType, int> Items { get => m_Items; set => m_Items = value; }
-
-    public PlayerData()
+    [Serializable]
+    public class PlayerData
     {
-        m_Items = new Dictionary<EntityType, int>();
+        [SerializeField] private Dictionary<EntityType, int> m_Items;
 
-        Load();
-    }
+        public Dictionary<EntityType, int> Items { get => m_Items; set => m_Items = value; }
 
-    public void Load()
-    {
-        foreach (EntityType type in Enum.GetValues(typeof(EntityType)))
+        public PlayerData()
         {
-            if (!m_Items.ContainsKey(type))
-                m_Items.Add(type, 0);
+            m_Items = new Dictionary<EntityType, int>();
+
+            Load();
+        }
+
+        public void Load()
+        {
+            foreach (EntityType type in Enum.GetValues(typeof(EntityType)))
+            {
+                if (!m_Items.ContainsKey(type))
+                    m_Items.Add(type, 0);
+            }
         }
     }
 }
