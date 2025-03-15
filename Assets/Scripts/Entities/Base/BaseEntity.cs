@@ -12,6 +12,7 @@ namespace CuteGothicCatcher.Entities
         [SerializeField] private Rigidbody2D m_Rigidbody;
         [SerializeField] private Collider2D m_LogicCollider;
         [SerializeField] private Collider2D m_PhysicCollider;
+        [SerializeField] private GameObject m_Model;
         #endregion
 
         #region Fields
@@ -24,6 +25,7 @@ namespace CuteGothicCatcher.Entities
         public EntityData Data => m_Data;
         public Rigidbody2D Rigidbody => m_Rigidbody;
         public Collider2D Collider => m_LogicCollider;
+        public GameObject Model => m_Model;
         #endregion
 
         #region Methods
@@ -93,7 +95,7 @@ namespace CuteGothicCatcher.Entities
         #region Spawn
         protected virtual void Spawn()
         {
-            m_Data.Spawn?.Spawn(transform);
+            m_Data.Spawn?.Spawn(transform, m_Model.transform);
         }
         #endregion
 
@@ -109,6 +111,13 @@ namespace CuteGothicCatcher.Entities
         public void StopMove()
         {
             m_Data.Movement?.StopMove();
+        }
+        #endregion
+
+        #region Click
+        public void Click()
+        {
+            m_Data.Clickability.Click(this);
         }
         #endregion
 
@@ -132,7 +141,7 @@ namespace CuteGothicCatcher.Entities
         #region Unity
         private void OnMouseDown()
         {
-            m_Data.Clickability.Click(this);
+            Click();
         }
         protected void OnCollisionEnter2D(Collision2D collision)
         {

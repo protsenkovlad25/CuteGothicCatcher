@@ -35,6 +35,11 @@ namespace CuteGothicCatcher.UI
             slot.OnClicked = ClickSlot;
 
             m_Slots.Add(slot);
+
+            slot = InstantiateSlot(EntityType.Kitty);
+            slot.OnClicked = ClickSlot;
+
+            m_Slots.Add(slot);
         }
 
         private PlacedItemSlot InstantiateSlot(EntityType itemType)
@@ -83,7 +88,13 @@ namespace CuteGothicCatcher.UI
         {
             if (Input.GetKeyDown(KeyCode.Alpha1))
             {
-                m_Slots[0].GetComponent<Button>().onClick.Invoke();
+                if (m_Slots[0].GetComponent<Button>().interactable)
+                    m_Slots[0].GetComponent<Button>().onClick.Invoke();
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha2))
+            {
+                if (m_Slots[1].GetComponent<Button>().interactable)
+                    m_Slots[1].GetComponent<Button>().onClick.Invoke();
             }
         }
     }

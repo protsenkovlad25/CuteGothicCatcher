@@ -7,7 +7,7 @@ namespace CuteGothicCatcher.Entities.Components
     {
         [SerializeField] private float m_Offset;
 
-        public override void Spawn(Transform transform)
+        public override void Spawn(Transform transform, Transform model)
         {
             Vector2 screenMin = MainCamera.ScreenMin + new Vector2(m_Offset, m_Offset);
             Vector2 screenMax = MainCamera.ScreenMax - new Vector2(m_Offset, m_Offset);
@@ -17,7 +17,7 @@ namespace CuteGothicCatcher.Entities.Components
 
             transform.position = new Vector2(randomX, randomY);
 
-            base.Spawn(transform);
+            base.Spawn(transform, model);
         }
     }
 }

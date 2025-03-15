@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3415633722277567951}
-  - component: {fileID: 798019178919170054}
+  - component: {fileID: -8127895094533025490}
   m_Layer: 0
   m_Name: KittyCollision
   m_TagString: Untagged
@@ -32,7 +32,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &798019178919170054
+--- !u!114 &-8127895094533025490
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,6 +41,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 3611869341066355500}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3efb323afc4e82140a30bea1a527c21f, type: 3}
+  m_Script: {fileID: 11500000, guid: 0735cfc8cd9e57346a372a2f76250c67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_AbsorbingEntities: 02000000
+  m_CollectingEntities: 01000000
+  m_CrackEffectPrefab: {fileID: 4414317834980445072, guid: 32a0f9fc711c8ac48a04b1f49cfcdf37, type: 3}
+  m_DamageFromAbsorbEntity: 1

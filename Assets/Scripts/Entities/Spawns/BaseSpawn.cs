@@ -37,7 +37,7 @@ namespace CuteGothicCatcher.Entities.Components
             }
         }
 
-        public virtual void Spawn(Transform transform)
+        public virtual void Spawn(Transform transform, Transform model)
         {
             PlaySpawnParticle();
         }

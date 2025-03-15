@@ -45,22 +45,18 @@ namespace CuteGothicCatcher.Core.Controllers
 
         private void Update()
         {
-            /*if (Input.GetKeyDown(KeyCode.Alpha1))
+            if (Input.GetKeyDown(KeyCode.H))
             {
                 SpawnEntity(EntityType.Heart);
             }
-            if (Input.GetKeyDown(KeyCode.Alpha2))
+            if (Input.GetKeyDown(KeyCode.S))
             {
                 SpawnEntity(EntityType.Scull);
             }
-            if (Input.GetKeyDown(KeyCode.Alpha3))
+            if (Input.GetKeyDown(KeyCode.T))
             {
                 SpawnEntity(EntityType.Tombstone);
             }
-            if (Input.GetKeyDown(KeyCode.Alpha4))
-            {
-                SpawnEntity(EntityType.Web);
-            }*/
         }
     }
 }

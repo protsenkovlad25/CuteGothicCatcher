@@ -50,6 +50,7 @@ MonoBehaviour:
   m_Rigidbody: {fileID: 9174492502645235007}
   m_LogicCollider: {fileID: 7910180475674272653}
   m_PhysicCollider: {fileID: 1139191238499531622}
+  m_Model: {fileID: 5414362756276730460}
 --- !u!50 &9174492502645235007
 Rigidbody2D:
   serializedVersion: 4
@@ -150,7 +151,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 198850923
-  m_SortingLayer: -2
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -396,7 +397,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 374446619
-  m_SortingLayer: -3
+  m_SortingLayer: -2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 250d30aa50384cd4f9902318284634bc, type: 3}
   m_Color: {r: 0.53396225, g: 0.66106343, b: 1, a: 1}

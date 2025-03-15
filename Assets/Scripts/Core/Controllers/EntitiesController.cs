@@ -20,6 +20,7 @@ namespace CuteGothicCatcher.Core.Controllers
             CreateEntitiesPool(EntityType.Web, 10);
             CreateEntitiesPool(EntityType.Heart, 20);
             CreateEntitiesPool(EntityType.Scull, 20);
+            CreateEntitiesPool(EntityType.Kitty, 20);
             CreateEntitiesPool(EntityType.Tombstone, 10);
         }
 

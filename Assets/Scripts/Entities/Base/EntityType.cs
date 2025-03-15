@@ -6,6 +6,7 @@ namespace CuteGothicCatcher.Entities
         Heart,
         Scull,
         Web,
-        Tombstone
+        Tombstone,
+        Kitty
     }
 }
