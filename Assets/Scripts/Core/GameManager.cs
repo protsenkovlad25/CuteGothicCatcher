@@ -13,6 +13,7 @@ namespace CuteGothicCatcher.Core
         [SerializeField] private GameController m_GameController;
         [SerializeField] private EntitiesController m_EntitiesController;
         [SerializeField] private InterfaceController m_InterfaceController;
+        [SerializeField] private PlacedItemsContoller m_PlacedItemsContoller;
 
         #region Init
         public void Init()
@@ -24,6 +25,7 @@ namespace CuteGothicCatcher.Core
             m_GameController.Init();
             m_EntitiesController.Init();
             m_InterfaceController.Init();
+            m_PlacedItemsContoller.Init();
 
             m_InterfaceController.BlackScreen.Disactivate(InitGame);
         }

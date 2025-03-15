@@ -1,18 +1,13 @@
 using CuteGothicCatcher.Core;
-using CuteGothicCatcher.Core.Interfaces;
 using UnityEngine;
 
 namespace CuteGothicCatcher.Entities.Components
 {
-    public class CameraSideSpawn : MonoBehaviour, ISpawn
+    public class CameraSideSpawn : BaseSpawn
     {
         [SerializeField] private float m_Offset;
 
-        public void Init()
-        {
-        }
-
-        public void Spawn(Transform transform)
+        public override void Spawn(Transform transform)
         {
             Vector2 screenMin = MainCamera.ViewportMin;
             Vector2 screenMax = MainCamera.ViewportMax;
@@ -37,6 +32,8 @@ namespace CuteGothicCatcher.Entities.Components
             }
 
             transform.position = spawnPos;
+
+            base.Spawn(transform);
         }
     }
 }

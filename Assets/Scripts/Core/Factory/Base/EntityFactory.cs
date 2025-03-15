@@ -7,7 +7,7 @@ namespace CuteGothicCatcher.Core
     {
         public static BaseEntity CreateEntity(EntityType type, Transform parent)
         {
-            EntityData data = PoolResources.EntitiesConfig.GetData(type);
+            EntityData data = PoolResources.EntitiesConfig.GetEntityData(type);
             BaseEntity entity = Object.Instantiate(data.Prefab, parent);
 
             entity.SetData(GetNewEntityData(type, entity.transform));
@@ -18,7 +18,7 @@ namespace CuteGothicCatcher.Core
 
         public static Pool<BaseEntity> CreatePoolEntities(EntityType type, Transform parent, int initialCount)
         {
-            EntityData data = PoolResources.EntitiesConfig.GetData(type);
+            EntityData data = PoolResources.EntitiesConfig.GetEntityData(type);
 
             Pool<BaseEntity> pool = new Pool<BaseEntity>(data.Prefab, initialCount, parent);
             pool.OnCreateNew += (entity) =>
@@ -46,7 +46,7 @@ namespace CuteGothicCatcher.Core
 
         private static EntityData GetNewEntityData(EntityType type, Transform entity)
         {
-            EntityData data = PoolResources.EntitiesConfig.GetData(type);
+            EntityData data = PoolResources.EntitiesConfig.GetEntityData(type);
 
             EntityData newData = new EntityData()
             {

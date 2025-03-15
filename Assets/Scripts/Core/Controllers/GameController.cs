@@ -28,7 +28,7 @@ namespace CuteGothicCatcher.Core.Controllers
 
             m_EntitiesController.SpawnEntities(EntityType.Heart, 10);
             m_EntitiesController.SpawnEntities(EntityType.Scull, 10);
-            //m_EntitiesController.SpawnEntities(EntityType.Web, 5);
+            //m_EntitiesController.SpawnEntities(EntityType.Web, 8);
             //m_EntitiesController.SpawnEntities(EntityType.Tombstone, 5);
         }
         public void StopGame()
@@ -45,7 +45,7 @@ namespace CuteGothicCatcher.Core.Controllers
 
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Alpha1))
+            /*if (Input.GetKeyDown(KeyCode.Alpha1))
             {
                 SpawnEntity(EntityType.Heart);
             }
@@ -60,7 +60,7 @@ namespace CuteGothicCatcher.Core.Controllers
             if (Input.GetKeyDown(KeyCode.Alpha4))
             {
                 SpawnEntity(EntityType.Web);
-            }
+            }*/
         }
     }
 }

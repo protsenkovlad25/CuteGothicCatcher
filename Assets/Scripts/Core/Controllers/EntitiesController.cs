@@ -31,15 +31,30 @@ namespace CuteGothicCatcher.Core.Controllers
             }
         }
 
-        public void SpawnEntities(EntityType type, int amount)
+        public void SpawnEntity(EntityType type)
         {
             BaseEntity entity;
+
+            entity = m_Entities[type].Take();
+            entity.StartEntity();
+
+            m_ActiveEntities.Add(entity);
+        }
+        public void SpawnEntity(EntityType type, Vector2 position)
+        {
+            BaseEntity entity;
+
+            entity = m_Entities[type].Take();
+            entity.transform.position = position;
+            entity.StartEntity();
+
+            m_ActiveEntities.Add(entity);
+        }
+        public void SpawnEntities(EntityType type, int amount)
+        {
             for (int i = 0; i < amount; i++)
             {
-                entity = m_Entities[type].Take();
-                entity.StartEntity();
-
-                m_ActiveEntities.Add(entity);
+                SpawnEntity(type);
             }
         }
 

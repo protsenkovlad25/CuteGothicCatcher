@@ -446,7 +446,7 @@ GameObject:
   - component: {fileID: 1934706537990823852}
   - component: {fileID: 5733099195841036744}
   m_Layer: 5
-  m_Name: ItemSlot
+  m_Name: PlacedItemSlot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -492,6 +492,7 @@ MonoBehaviour:
   m_Background: {fileID: 7523329254197692487}
   m_ItemImage: {fileID: 4266598156978435087}
   m_SelectIcon: {fileID: 9053696675860799977}
+  m_RechargeImage: {fileID: 7945100048347884047}
   m_AmountText: {fileID: 4791071433750734498}
 --- !u!114 &5733099195841036744
 MonoBehaviour:
@@ -614,7 +615,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: -2413806693520163455, guid: f745fa08d9c82fa43b558fc2d179cad1, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
