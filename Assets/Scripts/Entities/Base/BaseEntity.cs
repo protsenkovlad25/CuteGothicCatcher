@@ -11,7 +11,6 @@ namespace CuteGothicCatcher.Entities
         #region SerializeFields
         [SerializeField] private Rigidbody2D m_Rigidbody;
         [SerializeField] private Collider2D m_LogicCollider;
-        [SerializeField] private Collider2D m_PhysicCollider;
         [SerializeField] private GameObject m_Model;
         #endregion
 
@@ -62,14 +61,6 @@ namespace CuteGothicCatcher.Entities
 
         public void ChangeColliderState(bool state)
         {
-            /*if (m_Collider)
-            {
-                Sequence s = DOTween.Sequence();
-
-                s.AppendInterval(1f);
-                s.AppendCallback(() => { m_Collider.enabled = state; });
-            }*/
-
             m_LogicCollider.enabled = state;
         }
 

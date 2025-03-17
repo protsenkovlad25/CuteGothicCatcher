@@ -47,4 +47,4 @@ MonoBehaviour:
   m_AbsorbingEntities: 02000000
   m_CollectingEntities: 01000000
   m_CrackEffectPrefab: {fileID: 4414317834980445072, guid: 32a0f9fc711c8ac48a04b1f49cfcdf37, type: 3}
-  m_DamageFromAbsorbEntity: 1
+  m_DamageFromAbsorbEntity: 2

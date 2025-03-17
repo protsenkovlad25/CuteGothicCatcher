@@ -73,5 +73,10 @@ namespace CuteGothicCatcher.Core
 
             OnTimeScaleChanged?.Invoke(timeScale);
         }
+
+        public void ClearItems()
+        {
+            PlayerController.PlayerData.ClearItems();
+        }
     }
 }

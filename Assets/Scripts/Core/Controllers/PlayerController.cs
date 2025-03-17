@@ -16,6 +16,8 @@ namespace CuteGothicCatcher.Core.Controllers
         public static void Init()
         {
             LoadPlayer();
+
+            m_PlayerData.OnChanged = SavePlayer;
         }
 
         public static void NewPlayer()
@@ -31,7 +33,6 @@ namespace CuteGothicCatcher.Core.Controllers
                 string jsonFile = File.ReadAllText(m_FilePath);
 
                 m_PlayerData = JsonConvert.DeserializeObject<PlayerData>(jsonFile);
-                m_PlayerData.Load();
             }
             else NewPlayer();
         }

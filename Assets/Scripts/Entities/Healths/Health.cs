@@ -61,8 +61,8 @@ namespace CuteGothicCatcher.Entities.Components
 
             if (m_CurrentHealth < 0)
                 Die();
-
-            OnTakedDamage?.Invoke(amount);
+            else
+                OnTakedDamage?.Invoke(amount);
         }
 
         public void Die()

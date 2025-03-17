@@ -44,10 +44,16 @@ namespace CuteGothicCatcher.Entities.Components
         public void Click(BaseEntity self)
         {
             SpawnCollectParticle(self.transform.position);
+            CollectEntity(self);
 
             self.Disable();
 
             OnClicked?.Invoke();
+        }
+
+        private void CollectEntity(BaseEntity entity)
+        {
+            EventManager.CollectEntity(entity.Data.EntityType, m_CollectPoints);
         }
 
         public void SetCollectPoints(float points)
