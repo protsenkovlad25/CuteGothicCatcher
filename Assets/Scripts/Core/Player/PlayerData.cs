@@ -13,6 +13,7 @@ namespace CuteGothicCatcher.Core.Player
         [SerializeField] private Dictionary<EntityType, int> m_Items;
 
         public Dictionary<EntityType, int> Items { get => m_Items; set => m_Items = value; }
+        public int Hearts => m_Items[EntityType.Heart];
 
         public PlayerData()
         {
@@ -51,6 +52,16 @@ namespace CuteGothicCatcher.Core.Player
                 if (type != EntityType.None)
                     EventManager.ChangedItemCount(type, 0, 0);
             }
+
+            OnChanged?.Invoke();
+        }
+
+        public void SpendHearts(int amout)
+        {
+            int oldCount = m_Items[EntityType.Heart];
+            m_Items[EntityType.Heart] -= amout;
+
+            EventManager.ChangedItemCount(EntityType.Heart, oldCount, m_Items[EntityType.Heart]);
 
             OnChanged?.Invoke();
         }

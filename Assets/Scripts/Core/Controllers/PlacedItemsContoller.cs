@@ -32,9 +32,13 @@ namespace CuteGothicCatcher.Core.Controllers
             m_PlacedItemsPanel.RechargeSlot();
         }
 
-        private void SpawnItem(Vector2 position)
+        private void BuyAndSpawnItem(Vector2 position)
         {
             m_EntitiesController.SpawnEntity(m_SelectedSlot.ItemType, position);
+
+            PlayerController.PlayerData.SpendHearts(m_SelectedSlot.Price);
+
+            RechargeSlot();
         }
 
         private void CheckClickOnScreen()
@@ -43,22 +47,19 @@ namespace CuteGothicCatcher.Core.Controllers
 
             if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
             {
-                SpawnItem(MainCamera.Camera.ScreenToWorldPoint(Input.GetTouch(0).position));
-                RechargeSlot();
+                BuyAndSpawnItem(MainCamera.Camera.ScreenToWorldPoint(Input.GetTouch(0).position));
             }
 
 #if UNITY_EDITOR
             if (Input.GetMouseButtonUp(0))
             {
-                SpawnItem(MainCamera.Camera.ScreenToWorldPoint(Input.mousePosition));
-                RechargeSlot();
+                BuyAndSpawnItem(MainCamera.Camera.ScreenToWorldPoint(Input.mousePosition));
             }
 #endif
 
             if (Application.platform == RuntimePlatform.WindowsPlayer && Input.GetMouseButtonUp(0))
             {
-                SpawnItem(MainCamera.Camera.ScreenToWorldPoint(Input.mousePosition));
-                RechargeSlot();
+                BuyAndSpawnItem(MainCamera.Camera.ScreenToWorldPoint(Input.mousePosition));
             }
         }
 
