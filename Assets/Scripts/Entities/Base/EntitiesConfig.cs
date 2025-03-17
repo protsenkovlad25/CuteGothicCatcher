@@ -8,10 +8,10 @@ namespace CuteGothicCatcher
     public class EntitiesConfig : ScriptableObject
     {
         [SerializeField] private List<EntityData> m_EntityDatas;
-        [SerializeField] private List<RechargeEntityData> m_RechargeEntityDatas;
+        [SerializeField] private List<PlacedEntityData> m_PlacedEntityDatas;
 
         public List<EntityData> EntityDatas => m_EntityDatas;
-        public List<RechargeEntityData> RechargeEntityDatas => m_RechargeEntityDatas;
+        public List<PlacedEntityData> PlacedEntityDatas => m_PlacedEntityDatas;
 
         public EntityData GetEntityData(EntityType type)
         {
@@ -19,9 +19,9 @@ namespace CuteGothicCatcher
 
             return data ?? throw new System.NotImplementedException($"Not found entity data of type - {type}");
         }
-        public RechargeEntityData GetRechargeEntityData(EntityType type)
+        public PlacedEntityData GetPlacedEntityData(EntityType type)
         {
-            RechargeEntityData data = m_RechargeEntityDatas.Find(d => d.Type == type);
+            PlacedEntityData data = m_PlacedEntityDatas.Find(d => d.Type == type);
 
             return data ?? throw new System.NotImplementedException($"Not found recharge entity data of type - {type}");
         }

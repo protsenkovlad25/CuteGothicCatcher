@@ -32,9 +32,9 @@ namespace CuteGothicCatcher.UI
         public void Init()
         {
             EntityData data = PoolResources.EntitiesConfig.GetEntityData(m_ItemType);
-            RechargeEntityData rData = PoolResources.EntitiesConfig.GetRechargeEntityData(m_ItemType);
+            PlacedEntityData pData = PoolResources.EntitiesConfig.GetPlacedEntityData(m_ItemType);
 
-            m_RechargeTime = rData.RechargeTime;
+            m_RechargeTime = pData.RechargeTime;
             m_Button = GetComponent<Button>();
 
             SetItemImage(data.Sprite);
