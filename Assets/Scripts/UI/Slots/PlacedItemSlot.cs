@@ -46,6 +46,7 @@ namespace CuteGothicCatcher.UI
             SetSelectState(false);
         }
 
+        #region Set Methods
         public void SetItemType(EntityType itemType)
         {
             m_ItemType = itemType;
@@ -67,6 +68,7 @@ namespace CuteGothicCatcher.UI
         {
             m_Button.interactable = state;
         }
+        #endregion
 
         public void ClickSlot()
         {
@@ -79,6 +81,7 @@ namespace CuteGothicCatcher.UI
             return m_Price <= PlayerController.PlayerData.Hearts;
         }
 
+        #region RechargeTimer Methods
         private void StartRechargeTimer()
         {
             m_RechargeTimer = new Timer(m_RechargeTime);
@@ -101,9 +104,15 @@ namespace CuteGothicCatcher.UI
                 m_RechargeTimer.Update();
             }
         }
+        #endregion
+
         public void Recharge()
         {
             StartRechargeTimer();
+        }
+        public void Disactive()
+        {
+            EndRechargeTimer();
         }
 
         private void Update()

@@ -1,33 +1,45 @@
-using CuteGothicCatcher.Core.Interfaces;
 using CuteGothicCatcher.Entities;
+using DG.Tweening;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 namespace CuteGothicCatcher.UI
 {
-    public class PlacedItemsPanel : MonoBehaviour, IIniting
+    public class PlacedItemsPanel : Panel
     {
         public System.Action<PlacedItemSlot> OnSelectSlot;
 
+        [Header("Objects")]
         [SerializeField] private HorizontalLayoutGroup m_HorLayout;
         [SerializeField] private PlacedItemSlot m_SlotPrefab;
+        [Header("Anim Values")]
+        [SerializeField] private float m_OpenTime;
+        [SerializeField] private float m_CloseTime;
 
         private List<PlacedItemSlot> m_Slots;
         private PlacedItemSlot m_SelectedSlot;
 
-        public void Init()
+        private Vector2 m_StartPos;
+        private RectTransform m_RectTransform;
+
+        public override void Init()
         {
+            base.Init();
+
             InitSlots();
+
+            m_RectTransform = GetComponent<RectTransform>();
+            m_StartPos = m_RectTransform.anchoredPosition;
+
+            m_RectTransform.anchoredPosition = new Vector2(m_RectTransform.anchoredPosition.x, -m_RectTransform.sizeDelta.y);
         }
 
+        #region Slots Methods
         private void InitSlots()
         {
             m_Slots = new List<PlacedItemSlot>();
-
-            List<EntityType> types = new List<EntityType>();
-            types.AddRange(System.Enum.GetValues(typeof(EntityType)));
 
             PlacedItemSlot slot;
 
@@ -75,7 +87,7 @@ namespace CuteGothicCatcher.UI
         }
         public void DeselectSlot()
         {
-            m_SelectedSlot.SetSelectState(false);
+            m_SelectedSlot?.SetSelectState(false);
             m_SelectedSlot = null;
         }
         public void RechargeSlot()
@@ -83,6 +95,40 @@ namespace CuteGothicCatcher.UI
             m_SelectedSlot.Recharge();
             DeselectSlot();
         }
+        public void DisactiveSlots()
+        {
+            foreach (var slot in m_Slots)
+                slot.Disactive();
+        }
+        #endregion
+
+        #region Anim Methods
+        protected override void OpenAnim(UnityAction onEndAction = null)
+        {
+            gameObject.SetActive(true);
+
+            Sequence openSeq = DOTween.Sequence();
+
+            openSeq.Append(m_RectTransform.DOAnchorPosY(m_StartPos.y, m_OpenTime));
+
+            if (onEndAction != null)
+                openSeq.AppendCallback(onEndAction.Invoke);
+
+            openSeq.SetUpdate(true);
+        }
+        protected override void CloseAnim(UnityAction onEndAction = null)
+        {
+            Sequence closeSeq = DOTween.Sequence();
+
+            closeSeq.Append(m_RectTransform.DOAnchorPosY(-m_RectTransform.sizeDelta.y, m_CloseTime));
+            closeSeq.AppendCallback(() => { gameObject.SetActive(false); });
+
+            if (onEndAction != null)
+                closeSeq.AppendCallback(onEndAction.Invoke);
+
+            closeSeq.SetUpdate(true);
+        }
+        #endregion
 
         private void Update()
         {

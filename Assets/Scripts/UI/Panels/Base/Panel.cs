@@ -14,7 +14,6 @@ namespace CuteGothicCatcher.UI
         {
             OpenAnim(onEndAction);
         }
-
         public virtual void Close(UnityAction onEndAction = null)
         {
             CloseAnim(onEndAction);

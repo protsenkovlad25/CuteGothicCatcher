@@ -9,6 +9,8 @@ namespace CuteGothicCatcher.UI
     {
         [Header("Objects")]
         [SerializeField] private Button m_PauseButton;
+        [SerializeField] private GameTimer m_GameTimer;
+        [SerializeField] private PlacedItemsPanel m_PlacedItemsPanel;
 
         [Header("Anim Times")]
         [SerializeField] private float m_OpenTime;
@@ -26,6 +28,7 @@ namespace CuteGothicCatcher.UI
             rectTransform.anchoredPosition = new Vector2(rectTransform.anchoredPosition.x, rectTransform.sizeDelta.y);
         }
 
+        #region Anim Methods
         protected override void OpenAnim(UnityAction onEndAction = null)
         {
             gameObject.SetActive(true);
@@ -35,13 +38,14 @@ namespace CuteGothicCatcher.UI
             Sequence openSeq = DOTween.Sequence();
 
             openSeq.Append(rectTransform.DOAnchorPosY(m_StartButtonPos.y, m_OpenTime));
+            openSeq.JoinCallback(() => { m_GameTimer.Open(); });
+            openSeq.JoinCallback(() => { m_PlacedItemsPanel.Open(); });
 
             if (onEndAction != null)
                 openSeq.AppendCallback(onEndAction.Invoke);
 
             openSeq.SetUpdate(true);
         }
-
         protected override void CloseAnim(UnityAction onEndAction = null)
         {
             RectTransform rectTransform = m_PauseButton.GetComponent<RectTransform>();
@@ -49,6 +53,8 @@ namespace CuteGothicCatcher.UI
             Sequence closeSeq = DOTween.Sequence();
 
             closeSeq.Append(rectTransform.DOAnchorPosY(rectTransform.sizeDelta.y, m_CloseTime));
+            closeSeq.JoinCallback(() => { m_GameTimer.Close(); });
+            closeSeq.JoinCallback(() => { m_PlacedItemsPanel.Close(); });
             closeSeq.AppendCallback(() => { gameObject.SetActive(false); });
 
             if (onEndAction != null)
@@ -56,5 +62,6 @@ namespace CuteGothicCatcher.UI
 
             closeSeq.SetUpdate(true);
         }
+        #endregion
     }
 }

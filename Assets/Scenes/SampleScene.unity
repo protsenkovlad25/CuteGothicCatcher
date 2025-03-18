@@ -947,6 +947,7 @@ MonoBehaviour:
   m_GameController: {fileID: 1679135237}
   m_EntitiesController: {fileID: 1434508293}
   m_InterfaceController: {fileID: 1574091123}
+  m_GameTimerController: {fileID: 1374163760}
   m_PlacedItemsContoller: {fileID: 1976050754}
 --- !u!1 &1153012296
 GameObject:
@@ -981,6 +982,7 @@ Transform:
   - {fileID: 1574091122}
   - {fileID: 1434508292}
   - {fileID: 1976050753}
+  - {fileID: 1374163759}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1167913762
@@ -1167,6 +1169,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1194178299}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1354961952 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3272848726745959293, guid: cf4c53df1e7ec7942b2aaf9f353d019d, type: 3}
+  m_PrefabInstance: {fileID: 2654382128760417888}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6649898294a0bc428ca3ad4af496138, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1370053086
 GameObject:
   m_ObjectHideFlags: 0
@@ -1279,6 +1292,51 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Edge: 2
   m_Thickness: 1
+--- !u!1 &1374163758
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1374163759}
+  - component: {fileID: 1374163760}
+  m_Layer: 0
+  m_Name: GameTimerController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1374163759
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1374163758}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1153012297}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1374163760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1374163758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 646677677a021ae428460686c2ab8b93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_GameTimer: {fileID: 1354961952}
 --- !u!1 &1434508291
 GameObject:
   m_ObjectHideFlags: 0
@@ -1505,6 +1563,8 @@ MonoBehaviour:
   m_GamePanel: {fileID: 2654382128760417889}
   m_GameContent: {fileID: 1194178300}
   m_EntitiesController: {fileID: 1434508293}
+  m_GameTimerController: {fileID: 1374163760}
+  m_PlacedItemsContoller: {fileID: 1976050754}
 --- !u!224 &1821696782 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 337537415847172454, guid: cf4c53df1e7ec7942b2aaf9f353d019d, type: 3}

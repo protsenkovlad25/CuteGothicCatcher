@@ -21,7 +21,7 @@ namespace CuteGothicCatcher.Core.Controllers
         {
             m_SelectedSlot = slot;
         }
-        private void DeselectSlot()
+        public void DeselectSlot()
         {
             m_SelectedSlot = null;
             m_PlacedItemsPanel.DeselectSlot();
@@ -30,6 +30,11 @@ namespace CuteGothicCatcher.Core.Controllers
         {
             m_SelectedSlot = null;
             m_PlacedItemsPanel.RechargeSlot();
+        }
+        public void DisactiveSlots()
+        {
+            DeselectSlot();
+            m_PlacedItemsPanel.DisactiveSlots();
         }
 
         private void BuyAndSpawnItem(Vector2 position)

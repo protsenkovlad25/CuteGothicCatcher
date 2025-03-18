@@ -51,6 +51,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorLayout: {fileID: 9162287425891874960}
   m_SlotPrefab: {fileID: 1934706537990823852, guid: 98bd1a2b78f77234eb12a22350090039, type: 3}
+  m_OpenTime: 0.1
+  m_CloseTime: 0.1
 --- !u!1 &8211058791371769867
 GameObject:
   m_ObjectHideFlags: 0
