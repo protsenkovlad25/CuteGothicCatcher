@@ -29,6 +29,7 @@ namespace CuteGothicCatcher.Core.Controllers
             m_Timer.OnTimesUp.AddListener(EndTimer);
 
             m_GameTimer.SetAreaAmount(1);
+            m_GameTimer.PlayRoteteAnim();
         }
         public void PlayTimer()
         {
@@ -41,7 +42,9 @@ namespace CuteGothicCatcher.Core.Controllers
         public void EndTimer()
         {
             m_Timer = null;
+
             m_GameTimer.SetAreaAmount(0);
+            m_GameTimer.StopRotateAnim();
 
             OnTimerEnd?.Invoke();
         }

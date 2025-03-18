@@ -1,4 +1,3 @@
-using CuteGothicCatcher.Core;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Events;
@@ -15,13 +14,20 @@ namespace CuteGothicCatcher.UI
         [Header("Anima Values")]
         [SerializeField] private float m_OpenTime;
         [SerializeField] private float m_CloseTime;
+        [SerializeField] private float m_WaitTime;
+        [SerializeField] private float m_RotateTime;
+        [SerializeField] private Ease m_Ease;
 
         private Vector2 m_StartPos;
         private RectTransform m_RectTransform;
+        private Sequence m_RotateSequence;
 
         public override void Init()
         {
             base.Init();
+
+            InitRotateAnim();
+            StopRotateAnim();
 
             m_RectTransform = GetComponent<RectTransform>();
             m_StartPos = m_RectTransform.anchoredPosition;
@@ -61,6 +67,26 @@ namespace CuteGothicCatcher.UI
                 closeSeq.AppendCallback(onEndAction.Invoke);
 
             closeSeq.SetUpdate(true);
+        }
+        private void InitRotateAnim()
+        {
+            Sequence s = DOTween.Sequence();
+            m_RotateSequence = s;
+
+            s.AppendInterval(m_WaitTime);
+            s.Append(m_TimerIcon.transform.DOLocalRotate(new Vector3(0, 0, 180), m_RotateTime)).SetEase(m_Ease);
+            s.AppendInterval(m_WaitTime);
+            s.Append(m_TimerIcon.transform.DOLocalRotate(new Vector3(0, 0, 360), m_RotateTime)).SetEase(m_Ease);
+            s.SetLoops(-1);
+        }
+        public void PlayRoteteAnim()
+        {
+            m_RotateSequence.Restart();
+        }
+        public void StopRotateAnim()
+        {
+            m_RotateSequence.Pause();
+            m_TimerIcon.transform.DOLocalRotate(new Vector3(0, 0, 0), .5f);
         }
         #endregion
     }
