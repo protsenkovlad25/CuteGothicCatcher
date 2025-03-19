@@ -1,5 +1,4 @@
 using CuteGothicCatcher.Entities;
-using CuteGothicCatcher.Core.Controllers;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -30,11 +29,7 @@ namespace CuteGothicCatcher.UI
         {
             m_Slots = new Dictionary<EntityType, ItemSlot>();
 
-            foreach (var item in PlayerController.PlayerData.Items)
-            {
-                if (item.Value > 0)
-                    InitSlot(item.Key);
-            }
+            InitSlot(EntityType.Heart);
         }
         private ItemSlot InitSlot(EntityType type)
         {
@@ -51,13 +46,18 @@ namespace CuteGothicCatcher.UI
         }
         private void UpdateSlot(EntityType type, int oldCount, int newCount)
         {
-            if (m_Slots.ContainsKey(type) || newCount > 0)
+            /*if (m_Slots.ContainsKey(type) || newCount > 0)
             {
                 ItemSlot slot = m_Slots.ContainsKey(type) ?
                                 m_Slots[type] :
                                 InitSlot(type);
 
                 slot.UpdateCount();
+            }*/
+
+            if (m_Slots.ContainsKey(type))
+            {
+                m_Slots[type].UpdateCount();
             }
         }
 

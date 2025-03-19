@@ -40,15 +40,13 @@ namespace CuteGothicCatcher.Core
         #region Game Methods
         public void StartGame()
         {
-            m_InterfaceController.ClosePanel(typeof(MenuPanel));
+            m_InterfaceController.ClosePanel(typeof(GameModesPanel));
             m_InterfaceController.OpenPanel(typeof(GamePanel));
             m_InterfaceController.MoveBackground(m_GameController.StartGame);
         }
-        public void ReturnToMenu()
+        public void StopGame()
         {
-            m_InterfaceController.ClosePanel(typeof(PausePanel));
-            m_InterfaceController.ClosePanel(typeof(GamePanel));
-            m_InterfaceController.OpenPanel(typeof(MenuPanel));
+            ReturnToMenu();
             m_InterfaceController.MoveBackground();
 
             m_GameController.StopGame();
@@ -64,6 +62,15 @@ namespace CuteGothicCatcher.Core
         public void ContinueGame()
         {
             m_InterfaceController.ClosePanel(typeof(PausePanel), () => { ChangeTimeScale(1); });
+        }
+        public void ReturnToMenu()
+        {
+            m_InterfaceController.CloseAllOpenedPanels();
+            m_InterfaceController.OpenPanel(typeof(MenuPanel));
+        }
+        public void QuitGame()
+        {
+            Application.Quit();
         }
         #endregion
 

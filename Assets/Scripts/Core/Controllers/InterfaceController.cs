@@ -30,9 +30,13 @@ namespace CuteGothicCatcher.Core.Controllers
             else
                 throw new NotImplementedException($"Not found panel with type \"{type}\"");
         }
-        public void OpenPanel(Panel panel, UnityAction onEndAction = null)
+        public void OpenPanel(Panel panel, UnityAction onEndAction)
         {
             panel.Open(onEndAction);
+        }
+        public void OpenPanel(Panel panel)
+        {
+            panel.Open();
         }
 
         public void ClosePanel(Type type, UnityAction onEndAction = null)
@@ -42,9 +46,21 @@ namespace CuteGothicCatcher.Core.Controllers
             else
                 throw new NotImplementedException($"Not found panel with type \"{type}\"");
         }
-        public void ClosePanel(Panel panel, UnityAction onEndAction = null)
+        public void ClosePanel(Panel panel, UnityAction onEndAction)
         {
             panel.Close(onEndAction);
+        }
+        public void ClosePanel(Panel panel)
+        {
+            panel.Close();
+        }
+        public void CloseAllOpenedPanels()
+        {
+            foreach (var panel in m_Panels)
+            {
+                if (panel.gameObject.activeSelf)
+                    ClosePanel(panel);
+            }
         }
 
         public void MoveBackground(UnityAction onEndAction = null)
