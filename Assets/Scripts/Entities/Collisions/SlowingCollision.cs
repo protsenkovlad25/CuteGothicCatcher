@@ -90,8 +90,6 @@ namespace CuteGothicCatcher.Entities.Components
         {
             if (entity.Data.Clickability is CollectClickability)
             {
-                float points = 0;
-
                 CollectClickability clickability = entity.Data.Clickability as CollectClickability;
                 
                 if ((isEnter && clickability.CollectPoints < 0) || (!isEnter && clickability.CollectPoints >= 0))

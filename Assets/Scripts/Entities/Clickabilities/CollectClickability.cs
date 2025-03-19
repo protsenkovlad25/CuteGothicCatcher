@@ -8,14 +8,14 @@ namespace CuteGothicCatcher.Entities.Components
     {
         public event IClickable.Clicked OnClicked;
 
-        [SerializeField] private float m_CollectPoints;
+        [SerializeField] private int m_CollectPoints;
         [SerializeField] private Particle m_PositiveCollectParticlePrefab;
         [SerializeField] private Particle m_NegativeCollectParticlePrefab;
 
         private Pool<Particle> m_PositivePoolParticle;
         private Pool<Particle> m_NegativePoolParticle;
 
-        public float CollectPoints => m_CollectPoints;
+        public int CollectPoints => m_CollectPoints;
 
         public void Init(BaseEntity self)
         {
@@ -54,9 +54,10 @@ namespace CuteGothicCatcher.Entities.Components
         private void CollectEntity(BaseEntity entity)
         {
             EventManager.CollectEntity(entity.Data.EntityType, m_CollectPoints);
+            EventManager.SetScorePoints(m_CollectPoints);
         }
 
-        public void SetCollectPoints(float points)
+        public void SetCollectPoints(int points)
         {
             m_CollectPoints += points;
         }

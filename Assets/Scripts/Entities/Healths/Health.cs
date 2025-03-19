@@ -10,9 +10,14 @@ namespace CuteGothicCatcher.Entities.Components
         public event IHealth.Healed OnHealed;
         public event IHealth.Died OnDie;
 
+        [Header("Health Data")]
         [SerializeField] private float m_MaxHealth;
         [SerializeField] private float m_StartHealth;
         [SerializeField] private Particle m_DieParticlePrefab;
+        [Header("Score")]
+        [SerializeField] private int m_DiePoints;
+        [SerializeField] private int m_HealPoints;
+        [SerializeField] private int m_TakeDamagePoints;
 
         private float m_CurrentHealth;
         private Pool<Particle> m_ParticlePool;
@@ -53,6 +58,7 @@ namespace CuteGothicCatcher.Entities.Components
         public void Heal(float amount)
         {
             OnHealed?.Invoke(amount);
+            EventManager.SetScorePoints(m_HealPoints);
         }
 
         public void TakeDamage(float amount)
@@ -60,9 +66,14 @@ namespace CuteGothicCatcher.Entities.Components
             m_CurrentHealth -= amount;
 
             if (m_CurrentHealth < 0)
+            {
                 Die();
+            }
             else
+            {
                 OnTakedDamage?.Invoke(amount);
+                EventManager.SetScorePoints(m_TakeDamagePoints);
+            }
         }
 
         public void Die()
@@ -70,6 +81,7 @@ namespace CuteGothicCatcher.Entities.Components
             PlayDieParticle();
 
             OnDie?.Invoke();
+            EventManager.SetScorePoints(m_DiePoints);
         }
 
         public float GetMaxHealth()

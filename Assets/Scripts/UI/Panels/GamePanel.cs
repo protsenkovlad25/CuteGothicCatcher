@@ -10,6 +10,7 @@ namespace CuteGothicCatcher.UI
         [Header("Objects")]
         [SerializeField] private Button m_PauseButton;
         [SerializeField] private GameTimer m_GameTimer;
+        [SerializeField] private ScorePanel m_ScorePanel;
         [SerializeField] private PlacedItemsPanel m_PlacedItemsPanel;
 
         [Header("Anim Times")]
@@ -38,8 +39,12 @@ namespace CuteGothicCatcher.UI
             Sequence openSeq = DOTween.Sequence();
 
             openSeq.Append(rectTransform.DOAnchorPosY(m_StartButtonPos.y, m_OpenTime));
-            openSeq.JoinCallback(() => { m_GameTimer.Open(); });
-            openSeq.JoinCallback(() => { m_PlacedItemsPanel.Open(); });
+            openSeq.JoinCallback(() =>
+            {
+                m_GameTimer.Open();
+                m_ScorePanel.Open();
+                m_PlacedItemsPanel.Open();
+            });
 
             if (onEndAction != null)
                 openSeq.AppendCallback(onEndAction.Invoke);
@@ -53,8 +58,12 @@ namespace CuteGothicCatcher.UI
             Sequence closeSeq = DOTween.Sequence();
 
             closeSeq.Append(rectTransform.DOAnchorPosY(rectTransform.sizeDelta.y, m_CloseTime));
-            closeSeq.JoinCallback(() => { m_GameTimer.Close(); });
-            closeSeq.JoinCallback(() => { m_PlacedItemsPanel.Close(); });
+            closeSeq.JoinCallback(() =>
+            {
+                m_GameTimer.Close();
+                m_ScorePanel.Close();
+                m_PlacedItemsPanel.Close();
+            });
             closeSeq.AppendCallback(() => { gameObject.SetActive(false); });
 
             if (onEndAction != null)

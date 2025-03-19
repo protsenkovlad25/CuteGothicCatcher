@@ -22,5 +22,14 @@ namespace CuteGothicCatcher.Core
             OnChangedItemCount?.Invoke(type, oldCount, newCount);
         }
         #endregion
+
+        #region Score Events
+        public static UnityEvent<int> OnSetScorePoints = new();
+
+        public static void SetScorePoints(int points)
+        {
+            OnSetScorePoints?.Invoke(points);
+        }
+        #endregion
     }
 }

@@ -47,3 +47,6 @@ MonoBehaviour:
   m_MaxHealth: 10
   m_StartHealth: 10
   m_DieParticlePrefab: {fileID: 3982056334473016427, guid: 44aeb1cc27f039c4bafcb8313958a8de, type: 3}
+  m_DiePoints: 10
+  m_HealPoints: 0
+  m_TakeDamagePoints: 0

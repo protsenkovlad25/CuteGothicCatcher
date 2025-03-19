@@ -9,6 +9,7 @@ namespace CuteGothicCatcher.Core.Controllers
         [SerializeField] private GamePanel m_GamePanel;
         [SerializeField] private GameContent m_GameContent;
 
+        [SerializeField] private ScoreController m_ScoreController;
         [SerializeField] private EntitiesController m_EntitiesController;
         [SerializeField] private GameTimerController m_GameTimerController;
         [SerializeField] private PlacedItemsContoller m_PlacedItemsContoller;
@@ -28,6 +29,8 @@ namespace CuteGothicCatcher.Core.Controllers
         {
             m_IsGameActive = true;
 
+            m_ScoreController.ClearScore();
+
             m_GameTimerController.SetTime(30);
             m_GameTimerController.StartTimer();
 
@@ -43,6 +46,7 @@ namespace CuteGothicCatcher.Core.Controllers
             m_EntitiesController.RemoveEntities();
             m_PlacedItemsContoller.DisactiveSlots();
             m_GameTimerController.EndTimer();
+            m_ScoreController.SaveScore();
         }
 
         private void SpawnEntity(EntityType type, int amount = 1)

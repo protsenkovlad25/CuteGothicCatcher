@@ -11,6 +11,7 @@ namespace CuteGothicCatcher.Core
         [HideInInspector] public static UnityEvent<float> OnTimeScaleChanged = new UnityEvent<float>();
 
         [SerializeField] private GameController m_GameController;
+        [SerializeField] private ScoreController m_ScoreController;
         [SerializeField] private EntitiesController m_EntitiesController;
         [SerializeField] private InterfaceController m_InterfaceController;
         [SerializeField] private GameTimerController m_GameTimerController;
@@ -24,6 +25,7 @@ namespace CuteGothicCatcher.Core
             PlayerController.Init();
 
             m_GameController.Init();
+            m_ScoreController.Init();
             m_EntitiesController.Init();
             m_InterfaceController.Init();
             m_GameTimerController.Init();
