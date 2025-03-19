@@ -1,29 +1,28 @@
 using CuteGothicCatcher.Core;
 using CuteGothicCatcher.Core.Interfaces;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace CuteGothicCatcher.Objects
 {
     public class Cat : MonoBehaviour, IIniting
     {
-        [Header("Particles Data")]
+        [System.Serializable]
+        private class ParticleData
+        {
+            [SerializeField] private Particle m_Prefab;
+            [SerializeField] private int m_InitCount;
+            [SerializeField] private float m_Percent;
+
+            public Particle Prefab => m_Prefab;
+            public int InitCount => m_InitCount;
+            public float Percent => m_Percent;
+        }
+
         [SerializeField] private Transform m_ParticlesParent;
-        [Space]
-        [SerializeField] private Particle m_HeartParticlePrefab;
-        [SerializeField] private Particle m_MeowParticlePrefab;
-        [SerializeField] private Particle m_LoveParticlePrefab;
-        [Space]
-        [SerializeField] private int m_HeartsInitCount;
-        [SerializeField] private int m_MeowsInitCount;
-        [SerializeField] private int m_LovesInitCount;
+        [SerializeField] private List<ParticleData> m_ParticlesData;
 
-        [Header("Percents")]
-        [SerializeField] private float m_HeartPercent;
-        [SerializeField] private float m_LovePercent;
-
-        private Pool<Particle> m_HeartsPool;
-        private Pool<Particle> m_MeowsPool;
-        private Pool<Particle> m_LovesPool;
+        private List<(ParticleData, Pool<Particle>)> m_ParticlePools;
 
         public void Init()
         {
@@ -32,18 +31,19 @@ namespace CuteGothicCatcher.Objects
 
         private void InitPools()
         {
-            m_HeartsPool = new Pool<Particle>(m_HeartParticlePrefab, m_HeartsInitCount, m_ParticlesParent);
-            m_MeowsPool = new Pool<Particle>(m_MeowParticlePrefab, m_MeowsInitCount, m_ParticlesParent);
-            m_LovesPool = new Pool<Particle>(m_LoveParticlePrefab, m_LovesInitCount, m_ParticlesParent);
+            m_ParticlePools = new List<(ParticleData, Pool<Particle>)>();
 
-            foreach (var particle in m_HeartsPool.Objects)
-                InitPoolParticle(particle.Key);
+            Pool<Particle> pool;
+            foreach (var data in m_ParticlesData)
+            {
+                pool = new Pool<Particle>(data.Prefab, data.InitCount, m_ParticlesParent);
+                pool.OnCreateNew = InitPoolParticle;
 
-            foreach (var particle in m_MeowsPool.Objects)
-                InitPoolParticle(particle.Key);
+                foreach (var particle in pool.Objects)
+                    InitPoolParticle(particle.Key);
 
-            foreach (var particle in m_LovesPool.Objects)
-                InitPoolParticle(particle.Key);
+                m_ParticlePools.Add((data, pool));
+            }
         }
         private void InitPoolParticle(Particle particle)
         {
@@ -65,8 +65,23 @@ namespace CuteGothicCatcher.Objects
 
         private Particle GetRandomParticle()
         {
-            return Random.Range(0f, 100f) <= m_LovePercent ? m_LovesPool.Take() : 
-                   (Random.Range(0f, 100f) <= m_HeartPercent ? m_HeartsPool.Take() : m_MeowsPool.Take());
+            float totalWeight = 0;
+            foreach (var data in m_ParticlesData)
+            {
+                totalWeight += data.Percent;
+            }
+
+            float randValue = Random.Range(0f, totalWeight);
+            float cumulativeWeight = 0;
+
+            foreach (var item in m_ParticlePools)
+            {
+                cumulativeWeight += item.Item1.Percent;
+                if (randValue < cumulativeWeight)
+                    return item.Item2.Take();
+            }
+
+            throw new System.Exception("Couldn't get a random particle");
         }
 
         private void OnMouseDown()

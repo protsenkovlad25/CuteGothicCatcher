@@ -251,11 +251,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ParticlesParent: {fileID: 4174707917726603211}
-  m_HeartParticlePrefab: {fileID: 6057830139931632534, guid: d1ae6e83fad12a34cbe803c2bbd2f761, type: 3}
-  m_MeowParticlePrefab: {fileID: 6443932084785595763, guid: 329eca0dd0a23da4884d442cb666e034, type: 3}
-  m_LoveParticlePrefab: {fileID: 6443932084785595763, guid: 5b37c6589daf628469cdee8eb5d872ee, type: 3}
-  m_HeartsInitCount: 10
-  m_MeowsInitCount: 10
-  m_LovesInitCount: 5
-  m_HeartPercent: 70
-  m_LovePercent: 1
+  m_ParticlesData:
+  - m_Prefab: {fileID: 6057830139931632534, guid: d1ae6e83fad12a34cbe803c2bbd2f761, type: 3}
+    m_InitCount: 5
+    m_Percent: 75
+  - m_Prefab: {fileID: 6443932084785595763, guid: 329eca0dd0a23da4884d442cb666e034, type: 3}
+    m_InitCount: 5
+    m_Percent: 24
+  - m_Prefab: {fileID: 6443932084785595763, guid: 5b37c6589daf628469cdee8eb5d872ee, type: 3}
+    m_InitCount: 3
+    m_Percent: 1
