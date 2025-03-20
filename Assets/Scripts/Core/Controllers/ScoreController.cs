@@ -9,6 +9,8 @@ namespace CuteGothicCatcher.Core.Controllers
 
         private int m_CurrentScore;
 
+        public int CurrentScore => m_CurrentScore;
+
         public override void Init()
         {
             m_ScorePanel.Init();

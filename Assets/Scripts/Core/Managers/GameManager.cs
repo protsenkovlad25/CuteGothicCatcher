@@ -55,6 +55,10 @@ namespace CuteGothicCatcher.Core
 
             ChangeTimeScale(1);
         }
+        public void RestartGame()
+        {
+
+        }
         public void PauseGame()
         {
             ChangeTimeScale(0);

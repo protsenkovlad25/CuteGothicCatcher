@@ -59,7 +59,9 @@ namespace CuteGothicCatcher.Core.Controllers
             foreach (var panel in m_Panels)
             {
                 if (panel.gameObject.activeSelf)
+                {
                     ClosePanel(panel);
+                }
             }
         }
 

@@ -41,12 +41,16 @@ namespace CuteGothicCatcher.Core.Controllers
         }
         public void EndTimer()
         {
+            DisableTimer();
+
+            OnTimerEnd?.Invoke();
+        }
+        public void DisableTimer()
+        {
             m_Timer = null;
 
             m_GameTimer.SetAreaAmount(0);
             m_GameTimer.StopRotateAnim();
-
-            OnTimerEnd?.Invoke();
         }
         public void UpdateTimerAndArea()
         {

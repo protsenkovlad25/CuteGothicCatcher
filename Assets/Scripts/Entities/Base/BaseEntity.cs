@@ -1,4 +1,5 @@
 using CuteGothicCatcher.Core;
+using CuteGothicCatcher.Core.Controllers;
 using CuteGothicCatcher.Core.Interfaces;
 using UnityEngine;
 
@@ -132,22 +133,22 @@ namespace CuteGothicCatcher.Entities
         #region Unity
         private void OnMouseDown()
         {
-            Click();
+            if (GameController.IsGameActive) Click();
         }
         protected void OnCollisionEnter2D(Collision2D collision)
         {
             //Debug.Log($"Collision {name} - {collision.gameObject.name}");
-            m_Data.Collision?.Collision(this, collision);
+            if (GameController.IsGameActive) m_Data.Collision?.Collision(this, collision);
         }
         protected void OnTriggerEnter2D(Collider2D collider)
         {
             //Debug.Log($"Trigger Enter {name} - {collider.gameObject.name}");
-            m_Data.Collision?.TriggerEnter(this, collider);
+            if (GameController.IsGameActive) m_Data.Collision?.TriggerEnter(this, collider);
         }
         protected void OnTriggerExit2D(Collider2D collider)
         {
             //Debug.Log($"Trigger Exit {name} - {collider.gameObject.name}");
-            m_Data.Collision?.TriggerExit(this, collider);
+            if (GameController.IsGameActive) m_Data.Collision?.TriggerExit(this, collider);
         }
         protected void FixedUpdate()
         {
