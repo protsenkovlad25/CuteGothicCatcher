@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7de6633bc31d2a24b99e7b814390e9c5, type: 3}
+  m_Name: TimerGameMode Config
+  m_EditorClassIdentifier: 
+  m_TimerTime: 60
+  m_SpawnIntensity: 0.6
+  m_SpawnEntities:
+  - m_EntityType: 1
+    m_Weight: 40
+  - m_EntityType: 2
+    m_Weight: 40
+  - m_EntityType: 4
+    m_Weight: 20

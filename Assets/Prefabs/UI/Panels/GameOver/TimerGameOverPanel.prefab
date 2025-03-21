@@ -955,7 +955,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5877897184023612521, guid: d4a87c00aca90df4ca7f0b89b310c07c, type: 3}
       propertyPath: m_Color.a
-      value: 0.9019608
+      value: 0.9411765
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1108,10 +1108,6 @@ PrefabInstance:
     - target: {fileID: 7444780341731803864, guid: 1baadca9dc033b541a7cf0594a6875c2, type: 3}
       propertyPath: m_Name
       value: RestartButton
-      objectReference: {fileID: 0}
-    - target: {fileID: 8151562315104617333, guid: 1baadca9dc033b541a7cf0594a6875c2, type: 3}
-      propertyPath: m_Interactable
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

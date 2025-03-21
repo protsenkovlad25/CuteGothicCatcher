@@ -158,6 +158,78 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 5033584506361612684, guid: cb2d8166f93d79e409309dc37a40bd9a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5033584506361612684, guid: cb2d8166f93d79e409309dc37a40bd9a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5033584506361612684, guid: cb2d8166f93d79e409309dc37a40bd9a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1012989925}
+    - target: {fileID: 5033584506361612684, guid: cb2d8166f93d79e409309dc37a40bd9a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5033584506361612684, guid: cb2d8166f93d79e409309dc37a40bd9a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: StartGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 5033584506361612684, guid: cb2d8166f93d79e409309dc37a40bd9a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: CuteGothicCatcher.Core.GameManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5033584506361612684, guid: cb2d8166f93d79e409309dc37a40bd9a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5033584506361612684, guid: cb2d8166f93d79e409309dc37a40bd9a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5033584506361612684, guid: cb2d8166f93d79e409309dc37a40bd9a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7086957503013322165, guid: cb2d8166f93d79e409309dc37a40bd9a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7086957503013322165, guid: cb2d8166f93d79e409309dc37a40bd9a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7086957503013322165, guid: cb2d8166f93d79e409309dc37a40bd9a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1012989925}
+    - target: {fileID: 7086957503013322165, guid: cb2d8166f93d79e409309dc37a40bd9a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7086957503013322165, guid: cb2d8166f93d79e409309dc37a40bd9a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: StartGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 7086957503013322165, guid: cb2d8166f93d79e409309dc37a40bd9a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: CuteGothicCatcher.Core.GameManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7086957503013322165, guid: cb2d8166f93d79e409309dc37a40bd9a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7086957503013322165, guid: cb2d8166f93d79e409309dc37a40bd9a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7086957503013322165, guid: cb2d8166f93d79e409309dc37a40bd9a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 8147800903727646625, guid: cb2d8166f93d79e409309dc37a40bd9a, type: 3}
       propertyPath: m_Name
       value: GameModesPanel
@@ -172,7 +244,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8411475300962301311, guid: cb2d8166f93d79e409309dc37a40bd9a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8411475300962301311, guid: cb2d8166f93d79e409309dc37a40bd9a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -189,6 +261,14 @@ PrefabInstance:
     - target: {fileID: 8411475300962301311, guid: cb2d8166f93d79e409309dc37a40bd9a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: CuteGothicCatcher.Core.GameManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8411475300962301311, guid: cb2d8166f93d79e409309dc37a40bd9a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8411475300962301311, guid: cb2d8166f93d79e409309dc37a40bd9a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: Timer
       objectReference: {fileID: 0}
     - target: {fileID: 8411475300962301311, guid: cb2d8166f93d79e409309dc37a40bd9a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -714,6 +794,58 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6573230876049404833, guid: 0136881401b7c0b41b5f9b38984e9b14, type: 3}
   m_PrefabInstance: {fileID: 284603548}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &301739402
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 301739403}
+  - component: {fileID: 301739404}
+  m_Layer: 0
+  m_Name: TimerGameController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &301739403
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 301739402}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1679135236}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &301739404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 301739402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a23c842a0f397bc4891bb48be07cbffd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_GamePanel: {fileID: 1771687276}
+  m_GameContant: {fileID: 1194178300}
+  m_GameOverPanel: {fileID: 519424875}
+  m_ScoreController: {fileID: 236092179}
+  m_EntitiesController: {fileID: 1434508293}
+  m_InterfaceController: {fileID: 1574091123}
+  m_GameTimerController: {fileID: 1374163760}
+  m_PlacedItemsContoller: {fileID: 1976050754}
 --- !u!1 &372142060
 GameObject:
   m_ObjectHideFlags: 0
@@ -979,6 +1111,34 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 372142061}
     m_Modifications:
+    - target: {fileID: 2529006712896611112, guid: fdb6539cd7d7f7f45be6035c013624bc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2529006712896611112, guid: fdb6539cd7d7f7f45be6035c013624bc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2529006712896611112, guid: fdb6539cd7d7f7f45be6035c013624bc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1012989925}
+    - target: {fileID: 2529006712896611112, guid: fdb6539cd7d7f7f45be6035c013624bc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2529006712896611112, guid: fdb6539cd7d7f7f45be6035c013624bc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RestartGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 2529006712896611112, guid: fdb6539cd7d7f7f45be6035c013624bc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: CuteGothicCatcher.Core.GameManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2529006712896611112, guid: fdb6539cd7d7f7f45be6035c013624bc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 6396064033979432588, guid: fdb6539cd7d7f7f45be6035c013624bc, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1649,6 +1809,52 @@ Transform:
   - {fileID: 236092178}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1155592314
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1155592315}
+  - component: {fileID: 1155592316}
+  m_Layer: 0
+  m_Name: LevelsGameController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1155592315
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1155592314}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1679135236}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1155592316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1155592314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b95d5e5fe8c62a049bcb45f078dac61e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_GamePanel: {fileID: 1771687276}
+  m_GameContant: {fileID: 1194178300}
 --- !u!1 &1167913762
 GameObject:
   m_ObjectHideFlags: 0
@@ -2347,6 +2553,52 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_GameTimer: {fileID: 2109284542}
+--- !u!1 &1423629143
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1423629144}
+  - component: {fileID: 1423629145}
+  m_Layer: 0
+  m_Name: StoryGameController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1423629144
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1423629143}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1679135236}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1423629145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1423629143}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 002d89940aae5b44d9c844a06e4512c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_GamePanel: {fileID: 1771687276}
+  m_GameContant: {fileID: 1194178300}
 --- !u!1 &1434508291
 GameObject:
   m_ObjectHideFlags: 0
@@ -2552,7 +2804,10 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 301739403}
+  - {fileID: 1423629144}
+  - {fileID: 1155592315}
   m_Father: {fileID: 1153012297}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1679135237
@@ -2569,12 +2824,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_GamePanel: {fileID: 1771687276}
   m_GameContent: {fileID: 1194178300}
-  m_TimerGameOverPanel: {fileID: 519424875}
-  m_ScoreController: {fileID: 236092179}
-  m_EntitiesController: {fileID: 1434508293}
-  m_InterfaceController: {fileID: 1574091123}
-  m_GameTimerController: {fileID: 1374163760}
-  m_PlacedItemsContoller: {fileID: 1976050754}
+  m_GameModeControllers:
+  - {fileID: 301739404}
+  - {fileID: 1423629145}
+  - {fileID: 1155592316}
 --- !u!114 &1771687276 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2989392201404100799, guid: ac865bfb49f8c454a9d20459bd775dcd, type: 3}

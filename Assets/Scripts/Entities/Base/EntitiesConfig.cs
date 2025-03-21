@@ -1,8 +1,7 @@
-using CuteGothicCatcher.Entities;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace CuteGothicCatcher
+namespace CuteGothicCatcher.Entities
 {
     [CreateAssetMenu(fileName = "Entities Config", menuName = "Configs/Entities Config")]
     public class EntitiesConfig : ScriptableObject

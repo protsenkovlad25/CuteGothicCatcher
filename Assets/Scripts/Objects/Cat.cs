@@ -1,6 +1,7 @@
 using CuteGothicCatcher.Core;
 using CuteGothicCatcher.Core.Interfaces;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace CuteGothicCatcher.Objects
@@ -65,12 +66,7 @@ namespace CuteGothicCatcher.Objects
 
         private Particle GetRandomParticle()
         {
-            float totalWeight = 0;
-            foreach (var data in m_ParticlesData)
-            {
-                totalWeight += data.Percent;
-            }
-
+            float totalWeight = m_ParticlesData.Sum(d => d.Percent);
             float randValue = Random.Range(0f, totalWeight);
             float cumulativeWeight = 0;
 
