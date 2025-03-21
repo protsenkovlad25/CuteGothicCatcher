@@ -12,6 +12,8 @@ namespace CuteGothicCatcher.Core.Controllers
         private float m_Time;
         private Timer m_Timer;
 
+        public float PassedTime => m_Timer.PassedTime;
+
         public override void Init()
         {
             m_GameTimer.Init();

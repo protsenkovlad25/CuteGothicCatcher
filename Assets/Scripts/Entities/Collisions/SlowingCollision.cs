@@ -113,7 +113,14 @@ namespace CuteGothicCatcher.Entities.Components
         private void RemoveAllEffectSprite()
         {
             for (int i = m_TriggeredEntities.Count - 1; i >= 0; i--)
-                TriggerExit(m_Self, m_TriggeredEntities[i].Collider);
+            {
+                m_TriggeredEntities[i].Rigidbody.velocity /= m_SlowMultiplier;
+
+                RemoveSlowEffectSprite(m_TriggeredEntities[i]);
+                ChangeCollectability(m_TriggeredEntities[i], false);
+                
+                m_TriggeredEntities.RemoveAt(i);
+            }
         }
 
         private void CheckTriggeredEntities()

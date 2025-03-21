@@ -138,17 +138,17 @@ namespace CuteGothicCatcher.Entities
         protected void OnCollisionEnter2D(Collision2D collision)
         {
             //Debug.Log($"Collision {name} - {collision.gameObject.name}");
-            if (GameController.IsGameActive) m_Data.Collision?.Collision(this, collision);
+            m_Data.Collision?.Collision(this, collision);
         }
         protected void OnTriggerEnter2D(Collider2D collider)
         {
             //Debug.Log($"Trigger Enter {name} - {collider.gameObject.name}");
-            if (GameController.IsGameActive) m_Data.Collision?.TriggerEnter(this, collider);
+            m_Data.Collision?.TriggerEnter(this, collider);
         }
         protected void OnTriggerExit2D(Collider2D collider)
         {
             //Debug.Log($"Trigger Exit {name} - {collider.gameObject.name}");
-            if (GameController.IsGameActive) m_Data.Collision?.TriggerExit(this, collider);
+            m_Data.Collision?.TriggerExit(this, collider);
         }
         protected void FixedUpdate()
         {

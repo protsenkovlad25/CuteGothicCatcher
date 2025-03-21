@@ -18,7 +18,10 @@ namespace CuteGothicCatcher.Core.Controllers
         [SerializeField] private PlacedItemsContoller m_PlacedItemsContoller;
 
         private int m_CollectedHearts;
+        private float m_GameProgress;
+        private float m_GameStartTime;
         private float m_NextSpawnTime;
+        private float m_MultipleSpawnChance;
 
         private TimerGameModeConfig m_Config;
         private List<SpawnEntityWeight> m_SpawnEntities;
@@ -42,8 +45,11 @@ namespace CuteGothicCatcher.Core.Controllers
         {
             enabled = true;
 
-            m_CollectedHearts = 0;
+            m_GameStartTime = Time.time;
+            m_GameProgress = 0;
             m_NextSpawnTime = 0;
+            m_CollectedHearts = 0;
+            m_MultipleSpawnChance = 0;
 
             m_ScoreController.ClearScore();
 
@@ -86,20 +92,35 @@ namespace CuteGothicCatcher.Core.Controllers
 
         private void CollectEntity(EntityType type, float points)
         {
-            if (type == EntityType.Heart)
-                m_CollectedHearts++;
+            if (GameController.IsGameActive)
+            {
+                if (type == EntityType.Heart)
+                    m_CollectedHearts++;
+            }
         }
 
-        private void SpawnEntity(EntityType type, int amount = 1)
+        private void SpawnEntity(EntityType type)
         {
-            m_EntitiesController.SpawnEntities(type, amount);
+            m_EntitiesController.SpawnEntity(type);
+        }
+        private void SpawnEntities()
+        {
+            int count = 1;
+
+            if (Random.value < m_MultipleSpawnChance)
+                count = Random.Range(m_Config.MinMultipleSpawnCount, m_Config.MaxMultipleSpawnCount + 1);
+
+            for (int i = 0; i < count; i++)
+            {
+                SpawnEntity(GetRandomSpawnEntity());
+            }
         }
 
         private void CheckNextSpawn()
         {
             if (Time.time >= m_NextSpawnTime)
             {
-                SpawnEntity(GetRandomSpawnEntity());
+                SpawnEntities();
                 m_NextSpawnTime = Time.time + -Mathf.Log(1 - Random.value) / m_Config.Intensity;
             }
         }
@@ -129,19 +150,29 @@ namespace CuteGothicCatcher.Core.Controllers
             {
                 if (en.EntityType == type)
                 {
-                    en.ChangeWeight(en.Weight * 0.8f); // Уменьшаем вес за частый спавн
+                    en.ChangeWeight(en.Weight * m_Config.MultiplierSpawnedEntity);
                 }
                 else
                 {
-                    en.ChangeWeight(en.Weight * 1.1f); // Увеличиваем шанс на редкие сущности
+                    en.ChangeWeight(en.Weight * m_Config.MultiplierOtherEntity);
                 }
             }
+        }
+
+        private void NormalizeGameProgress()
+        {
+            m_GameProgress = Mathf.Clamp01(m_GameTimerController.PassedTime / m_Config.TimerTime);
+
+            m_MultipleSpawnChance = Mathf.Lerp(m_Config.MinMultipleSpawnChance, m_Config.MaxMultipleSpawnChance, m_GameProgress);
         }
 
         private void Update()
         {
             if (GameController.IsGameActive)
+            {
+                NormalizeGameProgress();
                 CheckNextSpawn();
+            }
 
             if (Input.GetKeyDown(KeyCode.H))
             {
