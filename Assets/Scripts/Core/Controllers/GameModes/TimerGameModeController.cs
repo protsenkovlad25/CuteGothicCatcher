@@ -17,6 +17,7 @@ namespace CuteGothicCatcher.Core.Controllers
         [SerializeField] private GameTimerController m_GameTimerController;
         [SerializeField] private PlacedItemsContoller m_PlacedItemsContoller;
 
+        private int m_SpendedHearts;
         private int m_CollectedHearts;
         private float m_GameProgress;
         private float m_GameStartTime;
@@ -25,19 +26,43 @@ namespace CuteGothicCatcher.Core.Controllers
 
         private TimerGameModeConfig m_Config;
         private List<SpawnEntityWeight> m_SpawnEntities;
+        private Dictionary<EntityType, int> m_CollectedEntities;
+        private Dictionary<EntityType, int> m_DestroyedEntities;
 
         public override GameMode GameMode => GameMode.Timer;
 
         public override void Init()
         {
             m_Config = PoolResources.TimerGMConfig;
-            
-            m_SpawnEntities = new List<SpawnEntityWeight>();
-            m_SpawnEntities.AddRange(m_Config.SpawnEntities);
+
+            InitSpawnEntities();
+            InitEntitiesLists();
 
             m_GameTimerController.OnTimerEnd = GameTimerEnd;
 
             EventManager.OnCollectEntity.AddListener(CollectEntity);
+            EventManager.OnEntityDied.AddListener(DieEntity);
+            PlayerController.PlayerData.OnSpendedHearts += SpendHearts;
+        }
+
+        private void InitSpawnEntities()
+        {
+            m_SpawnEntities = new List<SpawnEntityWeight>();
+            m_SpawnEntities.AddRange(m_Config.SpawnEntities);
+        }
+        private void InitEntitiesLists()
+        {
+            m_CollectedEntities = new Dictionary<EntityType, int>();
+            m_DestroyedEntities = new Dictionary<EntityType, int>();
+
+            foreach (EntityType type in System.Enum.GetValues(typeof(EntityType)))
+            {
+                if (type != EntityType.None)
+                {
+                    m_CollectedEntities.Add(type, 0);
+                    m_DestroyedEntities.Add(type, 0);
+                }
+            }
         }
 
         #region Game Methods
@@ -48,8 +73,12 @@ namespace CuteGothicCatcher.Core.Controllers
             m_GameStartTime = Time.time;
             m_GameProgress = 0;
             m_NextSpawnTime = 0;
+            m_SpendedHearts = 0;
             m_CollectedHearts = 0;
             m_MultipleSpawnChance = 0;
+
+            InitSpawnEntities();
+            InitEntitiesLists();
 
             m_ScoreController.ClearScore();
 
@@ -87,16 +116,27 @@ namespace CuteGothicCatcher.Core.Controllers
 
             m_GameOverPanel.SetScore(m_ScoreController.CurrentScore);
             m_GameOverPanel.SetHearts(m_CollectedHearts);
+            m_GameOverPanel.SetSpendedHearts(m_SpendedHearts);
+            m_GameOverPanel.SetCollectedEntities(m_CollectedEntities);
+            m_GameOverPanel.SetDestroyedEntities(m_DestroyedEntities);
             m_InterfaceController.OpenPanel(typeof(TimerGameOverPanel));
         }
 
         private void CollectEntity(EntityType type, float points)
         {
             if (GameController.IsGameActive)
-            {
-                if (type == EntityType.Heart)
-                    m_CollectedHearts++;
-            }
+                m_CollectedEntities[type]++;
+        }
+        private void DieEntity(BaseEntity entity)
+        {
+            if (GameController.IsGameActive)
+                m_DestroyedEntities[entity.Data.EntityType]++;
+        }
+
+        private void SpendHearts(int amount)
+        {
+            if (GameController.IsGameActive)
+                m_SpendedHearts += amount;
         }
 
         private void SpawnEntity(EntityType type)

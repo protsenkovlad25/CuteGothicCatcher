@@ -9,6 +9,7 @@ namespace CuteGothicCatcher.Core.Player
     public class PlayerData
     {
         [NonSerialized] public Action OnChanged;
+        [NonSerialized] public Action<int> OnSpendedHearts;
 
         [SerializeField] private int m_MaxScore;
         [SerializeField] private int m_LastScore;
@@ -63,13 +64,14 @@ namespace CuteGothicCatcher.Core.Player
             OnChanged?.Invoke();
         }
 
-        public void SpendHearts(int amout)
+        public void SpendHearts(int amount)
         {
             int oldCount = m_Items[EntityType.Heart];
-            m_Items[EntityType.Heart] -= amout;
+            m_Items[EntityType.Heart] -= amount;
 
             EventManager.ChangedItemCount(EntityType.Heart, oldCount, m_Items[EntityType.Heart]);
 
+            OnSpendedHearts?.Invoke(amount);
             OnChanged?.Invoke();
         }
 

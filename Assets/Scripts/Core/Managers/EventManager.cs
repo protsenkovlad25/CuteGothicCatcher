@@ -31,5 +31,14 @@ namespace CuteGothicCatcher.Core
             OnSetScorePoints?.Invoke(points);
         }
         #endregion
+
+        #region Entities Events
+        public static UnityEvent<BaseEntity> OnEntityDied = new UnityEvent<BaseEntity>();
+
+        public static void EntityDied(BaseEntity entity)
+        {
+            OnEntityDied?.Invoke(entity);
+        }
+        #endregion
     }
 }

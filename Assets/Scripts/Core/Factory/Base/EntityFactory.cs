@@ -37,7 +37,11 @@ namespace CuteGothicCatcher.Core
         private static void SetDataOfPoolEntity(BaseEntity entity, EntityType type, string name, Pool<BaseEntity> pool)
         {
             EntityData newData = GetNewEntityData(type, entity.transform);
-            newData.Health.OnDie += () => { pool.Return(entity); };
+            newData.Health.OnDie += () =>
+            {
+                EventManager.EntityDied(entity);
+                pool.Return(entity);
+            };
 
             entity.name = name;
             entity.SetData(newData);

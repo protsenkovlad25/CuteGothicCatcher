@@ -12,8 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7de6633bc31d2a24b99e7b814390e9c5, type: 3}
   m_Name: TimerGameMode Config
   m_EditorClassIdentifier: 
-  m_TimerTime: 60
+  m_TimerTime: 2
   m_SpawnIntensity: 0.6
+  m_MultiplierSpawnedEntity: 0.8
+  m_MultiplierOtherEntity: 1.1
+  m_MinMultipleSpawnCount: 2
+  m_MaxMultipleSpawnCount: 3
+  m_MinMultipleSpawnChance: 0.1
+  m_MaxMultipleSpawnChance: 0.7
   m_SpawnEntities:
   - m_EntityType: 1
     m_Weight: 40
