@@ -48,4 +48,4 @@ MonoBehaviour:
   m_PositiveCollectParticlePrefab: {fileID: 116088663182026228, guid: 0b8d8b521813b694ea80612dd9028068, type: 3}
   m_NegativeCollectParticlePrefab: {fileID: 5558770210858681573, guid: 6a35fef59eb4fde46891c733008880fb, type: 3}
   m_IsTimer: 1
-  m_ExtraTime: 10
+  m_ExtraTime: 5

@@ -35,7 +35,9 @@ namespace CuteGothicCatcher.Entities.Components
                     screenMax = MainCamera.ViewportMax;
 
             spawnPos = transform.position;
-            targetPoint = new Vector2(Random.Range(screenMin.x, screenMax.x), Random.Range(screenMin.y, screenMax.y));
+            targetPoint = new Vector2(Random.Range(screenMin.x + 5f, screenMax.x - 5f),
+                                      Random.Range(screenMin.y + 5f, screenMax.y - 5f));
+            
             direction = (targetPoint - spawnPos).normalized;
             
             m_Rigidbody.AddForce(direction * m_Force);

@@ -15,6 +15,7 @@ namespace CuteGothicCatcher.Entities.Components
             InitSpawnParticle();
         }
 
+        #region Particle Methods
         private void InitSpawnParticle()
         {
             if (m_SpawnParticlePrefab)
@@ -25,7 +26,6 @@ namespace CuteGothicCatcher.Entities.Components
                     particle.OnParticleFinished += () => { m_ParticlePool.Return(particle); };
             }
         }
-
         private void PlaySpawnParticle()
         {
             if (m_ParticlePool != null)
@@ -36,6 +36,7 @@ namespace CuteGothicCatcher.Entities.Components
                 particle.Play();
             }
         }
+        #endregion
 
         public virtual void Spawn(Transform transform, Transform model)
         {

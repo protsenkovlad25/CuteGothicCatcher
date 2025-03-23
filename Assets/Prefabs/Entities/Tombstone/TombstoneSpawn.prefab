@@ -45,4 +45,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_SpawnParticlePrefab: {fileID: 0}
-  m_Offset: 2
+  m_Offset: 2.3

@@ -149,11 +149,14 @@ namespace CuteGothicCatcher.Core.Controllers
 
             if (Random.value < m_MultipleSpawnChance)
                 count = Random.Range(m_Config.MinMultipleSpawnCount, m_Config.MaxMultipleSpawnCount + 1);
-
+            
+            (EntityType, EntitySubType) en;
             for (int i = 0; i < count; i++)
             {
-                (EntityType, EntitySubType) en = GetRandomSpawnEntity();
-                SpawnEntity(en.Item1, en.Item2);
+                en = GetRandomSpawnEntity();
+                
+                if (en.Item1 != EntityType.None)
+                    SpawnEntity(en.Item1, en.Item2);
             }
         }
 
@@ -168,11 +171,27 @@ namespace CuteGothicCatcher.Core.Controllers
 
         public (EntityType, EntitySubType) GetRandomSpawnEntity()
         {
-            float totalWeight = m_SpawnEntities.Sum(e => e.Weight);
+            List<SpawnEntityWeight> entities = new List<SpawnEntityWeight>();
+            entities.AddRange(m_SpawnEntities);
+
+            int count;
+            for (int i = entities.Count - 1; i >= 0; i--)
+            {
+                count = m_EntitiesController.ActiveEntities.Count(e => e.Data.EntityType == entities[i].EntityType &&
+                                                                       e.Data.EntitySubType == entities[i].EntitySubType);
+                
+                if (count > entities[i].MaxNum)
+                    entities.RemoveAt(i);
+            }
+
+            if (entities.Count == 0)
+                return (EntityType.None, EntitySubType.Ordinary);
+
+            float totalWeight = entities.Sum(e => e.Weight);
             float randValue = Random.Range(0f, totalWeight);
             float cumulativeWeight = 0;
 
-            foreach (var en in m_SpawnEntities)
+            foreach (var en in entities)
             {
                 cumulativeWeight += en.Weight;
                 if (randValue < cumulativeWeight)

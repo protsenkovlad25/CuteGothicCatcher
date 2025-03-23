@@ -1,3 +1,4 @@
+using CuteGothicCatcher.Core.Interfaces;
 using CuteGothicCatcher.Entities;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,6 +12,8 @@ namespace CuteGothicCatcher.Core.Controllers
         private Dictionary<(EntityType, EntitySubType), Pool<BaseEntity>> m_Entities;
 
         private List<BaseEntity> m_ActiveEntities;
+
+        public List<BaseEntity> ActiveEntities => m_ActiveEntities;
 
         public override void Init()
         {
@@ -26,6 +29,8 @@ namespace CuteGothicCatcher.Core.Controllers
             CreateEntitiesPool(EntityType.Web, 10);
             CreateEntitiesPool(EntityType.Kitty, 20);
             CreateEntitiesPool(EntityType.Tombstone, 10);
+
+            EventManager.OnEntityDied.AddListener(EntityDied);
         }
 
         private void CreateEntitiesPool(EntityType type, int initialCount)
@@ -50,6 +55,8 @@ namespace CuteGothicCatcher.Core.Controllers
             entity = m_Entities[(type, subType)].Take();
             entity.StartEntity();
 
+            entity.OnDisabled += EntityDisabled;
+
             m_ActiveEntities.Add(entity);
         }
         public void SpawnEntity(EntityType type, Vector2 position)
@@ -59,6 +66,8 @@ namespace CuteGothicCatcher.Core.Controllers
             entity = m_Entities[(type, EntitySubType.Ordinary)].Take();
             entity.transform.position = position;
             entity.StartEntity();
+
+            entity.OnDisabled += EntityDisabled;
 
             m_ActiveEntities.Add(entity);
         }
@@ -70,12 +79,27 @@ namespace CuteGothicCatcher.Core.Controllers
             }
         }
 
+        public void RemoveEntity(BaseEntity entity)
+        {
+            m_ActiveEntities.Remove(entity);
+        }
         public void RemoveEntities()
         {
             foreach (var entity in m_ActiveEntities)
                 m_Entities[(entity.Data.EntityType, entity.Data.EntitySubType)].Return(entity);
 
             m_ActiveEntities.Clear();
+        }
+
+        private void EntityDied(BaseEntity entity)
+        {
+            RemoveEntity(entity);
+        }
+        private void EntityDisabled(IPoolable entity)
+        {
+            entity.OnDisabled -= EntityDisabled;
+
+            RemoveEntity(entity as BaseEntity);
         }
     }
 }

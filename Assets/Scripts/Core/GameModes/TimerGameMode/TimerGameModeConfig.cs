@@ -55,10 +55,12 @@ namespace CuteGothicCatcher.Core
         [SerializeField] private EntityType m_EntityType;
         [SerializeField] private EntitySubType m_EntitySubType;
         [SerializeField] private float m_Weight;
+        [SerializeField] private int m_MaxNum;
 
         public EntityType EntityType => m_EntityType;
         public EntitySubType EntitySubType => m_EntitySubType;
         public float Weight => m_Weight;
+        public int MaxNum => m_MaxNum;
 
         public void ChangeWeight(float weight)
         {
