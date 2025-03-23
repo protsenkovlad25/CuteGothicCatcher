@@ -10,7 +10,7 @@ namespace CuteGothicCatcher.Core
         private bool m_IsPause;
 
         private float m_PassedTime;
-        private readonly float m_Time;
+        private float m_Time;
 
         public bool IsPause => m_IsPause;
         public float PassedTime => m_PassedTime;
@@ -20,6 +20,14 @@ namespace CuteGothicCatcher.Core
         {
             m_PassedTime = 0;
             m_Time = time;
+        }
+
+        public void SetTime(float time)
+        {
+            m_PassedTime -= time;
+            
+            if (m_PassedTime < 0)
+                m_PassedTime = 0;
         }
 
         public void Reset()

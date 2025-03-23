@@ -11,6 +11,8 @@ namespace CuteGothicCatcher.Entities.Components
         [SerializeField] private int m_CollectPoints;
         [SerializeField] private Particle m_PositiveCollectParticlePrefab;
         [SerializeField] private Particle m_NegativeCollectParticlePrefab;
+        [SerializeField] private bool m_IsTimer;
+        [SerializeField] private float m_ExtraTime;
 
         private Pool<Particle> m_PositivePoolParticle;
         private Pool<Particle> m_NegativePoolParticle;
@@ -53,6 +55,11 @@ namespace CuteGothicCatcher.Entities.Components
 
         private void CollectEntity(BaseEntity entity)
         {
+            if (m_IsTimer)
+            {
+                EventManager.SetExtraTime(m_ExtraTime);
+            }
+
             EventManager.CollectEntity(entity.Data.EntityType, m_CollectPoints);
             EventManager.SetScorePoints(m_CollectPoints);
         }

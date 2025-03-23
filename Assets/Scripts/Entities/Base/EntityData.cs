@@ -9,6 +9,7 @@ namespace CuteGothicCatcher.Entities
         [SerializeField] private string m_TextId;
         [SerializeField] private Sprite m_Sprite;
         [SerializeField] private EntityType m_EntityType;
+        [SerializeField] private EntitySubType m_EntitySubType;
         [SerializeField] private BaseEntity m_Prefab;
         [SerializeField] private MonoBehaviour m_Spawn;
         [SerializeField] private MonoBehaviour m_Health;
@@ -19,6 +20,7 @@ namespace CuteGothicCatcher.Entities
         public string TextId { get => m_TextId; set => m_TextId = value; }
         public Sprite Sprite { get => m_Sprite; set => m_Sprite = value; }
         public EntityType EntityType { get => m_EntityType; set => m_EntityType = value; }
+        public EntitySubType EntitySubType { get => m_EntitySubType; set => m_EntitySubType = value; }
         public BaseEntity Prefab { get => m_Prefab; set => m_Prefab = value; }
         
         public MonoBehaviour SpawnMB { get => m_Spawn; set => m_Spawn = value; }

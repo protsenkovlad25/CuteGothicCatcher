@@ -40,5 +40,14 @@ namespace CuteGothicCatcher.Core
             OnEntityDied?.Invoke(entity);
         }
         #endregion
+
+        #region Timer Events
+        public static UnityEvent<float> OnSetExtraTime = new UnityEvent<float>();
+
+        public static void SetExtraTime(float time)
+        {
+            OnSetExtraTime?.Invoke(time);
+        }
+        #endregion
     }
 }

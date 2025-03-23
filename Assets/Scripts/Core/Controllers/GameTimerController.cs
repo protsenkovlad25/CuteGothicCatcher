@@ -17,11 +17,17 @@ namespace CuteGothicCatcher.Core.Controllers
         public override void Init()
         {
             m_GameTimer.Init();
+
+            EventManager.OnSetExtraTime.AddListener(SetExtraTime);
         }
 
-        public void SetTime(float time)
+        public void SetTimerTime(float time)
         {
             m_Time = time;
+        }
+        public void SetExtraTime(float time)
+        {
+            m_Timer.SetTime(time);
         }
 
         #region Timer Methods

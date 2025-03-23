@@ -53,9 +53,11 @@ namespace CuteGothicCatcher.Core
     public struct SpawnEntityWeight
     {
         [SerializeField] private EntityType m_EntityType;
+        [SerializeField] private EntitySubType m_EntitySubType;
         [SerializeField] private float m_Weight;
 
         public EntityType EntityType => m_EntityType;
+        public EntitySubType EntitySubType => m_EntitySubType;
         public float Weight => m_Weight;
 
         public void ChangeWeight(float weight)

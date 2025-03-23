@@ -82,7 +82,7 @@ namespace CuteGothicCatcher.Core.Controllers
 
             m_ScoreController.ClearScore();
 
-            m_GameTimerController.SetTime(m_Config.TimerTime);
+            m_GameTimerController.SetTimerTime(m_Config.TimerTime);
             m_GameTimerController.StartTimer();
 
             //m_EntitiesController.SpawnEntities(EntityType.Heart, 10);
@@ -139,9 +139,9 @@ namespace CuteGothicCatcher.Core.Controllers
                 m_SpendedHearts += amount;
         }
 
-        private void SpawnEntity(EntityType type)
+        private void SpawnEntity(EntityType type, EntitySubType subType = EntitySubType.Ordinary)
         {
-            m_EntitiesController.SpawnEntity(type);
+            m_EntitiesController.SpawnEntity(type, subType);
         }
         private void SpawnEntities()
         {
@@ -152,7 +152,8 @@ namespace CuteGothicCatcher.Core.Controllers
 
             for (int i = 0; i < count; i++)
             {
-                SpawnEntity(GetRandomSpawnEntity());
+                (EntityType, EntitySubType) en = GetRandomSpawnEntity();
+                SpawnEntity(en.Item1, en.Item2);
             }
         }
 
@@ -165,7 +166,7 @@ namespace CuteGothicCatcher.Core.Controllers
             }
         }
 
-        public EntityType GetRandomSpawnEntity()
+        public (EntityType, EntitySubType) GetRandomSpawnEntity()
         {
             float totalWeight = m_SpawnEntities.Sum(e => e.Weight);
             float randValue = Random.Range(0f, totalWeight);
@@ -176,19 +177,19 @@ namespace CuteGothicCatcher.Core.Controllers
                 cumulativeWeight += en.Weight;
                 if (randValue < cumulativeWeight)
                 {
-                    AdjustWeightsAfterSpawn(en.EntityType);
-                    return en.EntityType;
+                    AdjustWeightsAfterSpawn(en.EntityType, en.EntitySubType);
+                    return (en.EntityType, en.EntitySubType);
                 }
             }
 
             throw new System.Exception("Couldn't get a random entity");
         }
 
-        private void AdjustWeightsAfterSpawn(EntityType type)
+        private void AdjustWeightsAfterSpawn(EntityType type, EntitySubType subType)
         {
             foreach (var en in m_SpawnEntities)
             {
-                if (en.EntityType == type)
+                if (en.EntityType == type && en.EntitySubType == subType)
                 {
                     en.ChangeWeight(en.Weight * m_Config.MultiplierSpawnedEntity);
                 }
