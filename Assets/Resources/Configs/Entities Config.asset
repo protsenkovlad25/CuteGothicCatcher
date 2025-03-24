@@ -27,12 +27,12 @@ MonoBehaviour:
     m_Sprite: {fileID: 21300000, guid: d833ab0564f74504b9ed1873d3764c3d, type: 3}
     m_EntityType: 1
     m_EntitySubType: 1
-    m_Prefab: {fileID: 2375790359394204288, guid: bc29614102f23ef4299dc662e82186ed, type: 3}
+    m_Prefab: {fileID: 2375790359394204288, guid: 475601b315ffa784da43cbf7d1864776, type: 3}
     m_Spawn: {fileID: 584077129694342883, guid: 05f8876e591f48744bdf3ec33ae7deb6, type: 3}
     m_Health: {fileID: 1290806073828794158, guid: f7d5ed0dca9a5ce4894bf32cae344fa1, type: 3}
     m_Movement: {fileID: 2431343783027552026, guid: 34bcb45892b5552409711d2a7a9dcef6, type: 3}
     m_Collision: {fileID: 5669940615379443219, guid: 34b9d298adeee6d4397f675ddc7b6173, type: 3}
-    m_Clickability: {fileID: 6385861506604156482, guid: a701bcad8b02a8a469723f39e2554f80, type: 3}
+    m_Clickability: {fileID: 6385861506604156482, guid: 8a77fb0e88443dd49ae5131ef3c30b4d, type: 3}
   - m_TextId: scull
     m_Sprite: {fileID: 21300000, guid: 656ce2d8cf2f96d4794faa46c81da959, type: 3}
     m_EntityType: 2
@@ -47,12 +47,12 @@ MonoBehaviour:
     m_Sprite: {fileID: 21300000, guid: 656ce2d8cf2f96d4794faa46c81da959, type: 3}
     m_EntityType: 2
     m_EntitySubType: 1
-    m_Prefab: {fileID: 1903279134507654420, guid: fbede8fa1811d5f44891b7b826d63a79, type: 3}
+    m_Prefab: {fileID: 1903279134507654420, guid: 68d3f2435c6b90048a6718bdbc5aaa01, type: 3}
     m_Spawn: {fileID: 584077129694342883, guid: eb6cf97fedf73e24b8cfc01b9fb6eff2, type: 3}
     m_Health: {fileID: 1290806073828794158, guid: ffd9cdbd34ae1e447a473c6ff8e929e2, type: 3}
     m_Movement: {fileID: 2431343783027552026, guid: 38ffa0787974ba140b1edd79dd2ea4ec, type: 3}
     m_Collision: {fileID: -3929656451091517367, guid: 7a016982819fcd347b39d2f7cd6a0891, type: 3}
-    m_Clickability: {fileID: -4514382713636804910, guid: 7462f4ed01100064184dc82870b063ad, type: 3}
+    m_Clickability: {fileID: -4514382713636804910, guid: f3573ce37b7fb2040b550f350de94b40, type: 3}
   - m_TextId: tombstone
     m_Sprite: {fileID: 21300000, guid: 1237cf211d7931a45a50ec4f7b2a703d, type: 3}
     m_EntityType: 4

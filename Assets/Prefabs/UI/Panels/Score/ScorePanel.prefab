@@ -319,5 +319,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ValueText: {fileID: 1766223496777092398}
+  m_Direction: 2
   m_OpenTime: 0.1
   m_CloseTime: 0.1

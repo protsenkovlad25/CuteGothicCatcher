@@ -8,25 +8,19 @@ namespace CuteGothicCatcher.UI
 {
     public class MenuPanel : Panel
     {
-        [Header("Objects")]
-        [SerializeField] private List<Button> m_Buttons;
-
-        [Header("Anim Values")]
         [SerializeField] private float m_ButtonsOpenTime;
         [SerializeField] private float m_ButtonsCloseTime;
         [SerializeField] private float m_Padding;
+        
+        [Header("Objects")]
+        [SerializeField] private List<Button> m_Buttons;
 
         private List<Vector2> m_StartButtonsPos;
 
-        public override void Init()
+        protected override void InitStartPosition()
         {
-            base.Init();
+            base.InitStartPosition();
 
-            InitButtons();
-        }
-
-        private void InitButtons()
-        {
             m_StartButtonsPos = new List<Vector2>();
 
             RectTransform rectTransform;
@@ -43,7 +37,10 @@ namespace CuteGothicCatcher.UI
         {
             gameObject.SetActive(true);
 
+            m_CloseSeq?.Kill();
+
             Sequence openSeq = DOTween.Sequence();
+            m_OpenSeq = openSeq;
 
             RectTransform rectTransform;
             for (int i = 0; i < m_Buttons.Count; i++)
@@ -61,7 +58,10 @@ namespace CuteGothicCatcher.UI
         }
         protected override void CloseAnim(UnityAction onEndAction = null)
         {
+            m_OpenSeq?.Kill();
+
             Sequence closeSeq = DOTween.Sequence();
+            m_CloseSeq = closeSeq;
 
             RectTransform rectTransform;
             for (int i = 0; i < m_Buttons.Count; i++)

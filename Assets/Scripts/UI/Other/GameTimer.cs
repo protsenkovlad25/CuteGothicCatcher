@@ -7,19 +7,14 @@ namespace CuteGothicCatcher.UI
 {
     public class GameTimer : Panel
     {
-        [Header("Objects")]
-        [SerializeField] private Image m_TimerArea;
-        [SerializeField] private Image m_TimerIcon;
-
-        [Header("Anima Values")]
-        [SerializeField] private float m_OpenTime;
-        [SerializeField] private float m_CloseTime;
         [SerializeField] private float m_WaitTime;
         [SerializeField] private float m_RotateTime;
         [SerializeField] private Ease m_Ease;
 
-        private Vector2 m_StartPos;
-        private RectTransform m_RectTransform;
+        [Header("Objects")]
+        [SerializeField] private Image m_TimerArea;
+        [SerializeField] private Image m_TimerIcon;
+
         private Sequence m_RotateSequence;
 
         public override void Init()
@@ -28,11 +23,6 @@ namespace CuteGothicCatcher.UI
 
             InitRotateAnim();
             StopRotateAnim();
-
-            m_RectTransform = GetComponent<RectTransform>();
-            m_StartPos = m_RectTransform.anchoredPosition;
-
-            m_RectTransform.anchoredPosition = new Vector2(-m_RectTransform.sizeDelta.x, m_RectTransform.anchoredPosition.y);
         }
 
         public void SetAreaAmount(float amount)
@@ -45,11 +35,14 @@ namespace CuteGothicCatcher.UI
         {
             gameObject.SetActive(true);
 
+            m_CloseSeq?.Kill();
+
             SetAreaAmount(1);
 
             Sequence openSeq = DOTween.Sequence();
+            m_OpenSeq = openSeq;
 
-            openSeq.Append(m_RectTransform.DOAnchorPosX(m_StartPos.x, m_OpenTime));
+            openSeq.Append(m_RectTransform.DOAnchorPosX(m_OpenPos.x, m_OpenTime));
 
             if (onEndAction != null)
                 openSeq.AppendCallback(onEndAction.Invoke);
@@ -58,9 +51,12 @@ namespace CuteGothicCatcher.UI
         }
         protected override void CloseAnim(UnityAction onEndAction = null)
         {
-            Sequence closeSeq = DOTween.Sequence();
+            m_OpenSeq?.Kill();
 
-            closeSeq.Append(m_RectTransform.DOAnchorPosX(-m_RectTransform.sizeDelta.x, m_CloseTime));
+            Sequence closeSeq = DOTween.Sequence();
+            m_CloseSeq = closeSeq;
+
+            closeSeq.Append(m_RectTransform.DOAnchorPosX(m_ClosePos.x, m_CloseTime));
             closeSeq.AppendCallback(() => { gameObject.SetActive(false); });
 
             if (onEndAction != null)

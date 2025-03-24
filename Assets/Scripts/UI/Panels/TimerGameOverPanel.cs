@@ -11,6 +11,15 @@ namespace CuteGothicCatcher.UI
 {
     public class TimerGameOverPanel : Panel
     {
+        [SerializeField] private float m_ImageFadeTime;
+        [Space]
+        [SerializeField] private float m_ButtonsOpenTime;
+        [SerializeField] private float m_ButtonsOpenIntervalTime;
+        [SerializeField] private float m_ButtonsCloseTime;
+        [Space]
+        [SerializeField] private float m_OtherOpenTime;
+        [SerializeField] private float m_OtherCloseTime;
+
         [Header("Objects")]
         [SerializeField] private GameObject m_ScorePanel;
         [SerializeField] private GameObject m_HeartsPanel;
@@ -30,20 +39,9 @@ namespace CuteGothicCatcher.UI
         [SerializeField] private TMP_Text m_HeartsValueText;
         [SerializeField] private TMP_Text m_SpendedHeartsValueText;
 
-        [Header("Anim Times")]
-        [SerializeField] private float m_ImageFadeTime;
-        [Space]
-        [SerializeField] private float m_ButtonsOpenTime;
-        [SerializeField] private float m_ButtonsOpenIntervalTime;
-        [SerializeField] private float m_ButtonsCloseTime;
-        [Space]
-        [SerializeField] private float m_OtherOpenTime;
-        [SerializeField] private float m_OtherCloseTime;
-
         private float m_StartAlfa;
         
         private Image m_Image;
-        private RectTransform m_RectTransform;
         private List<Vector2> m_StartButtonsPos;
         private Dictionary<EntityType, GameObject> m_CollectedValueSlots;
         private Dictionary<EntityType, GameObject> m_DestroyedValueSlots;
@@ -104,6 +102,7 @@ namespace CuteGothicCatcher.UI
         }
         #endregion
 
+        #region Set Methods
         public void SetScore(int score)
         {
             m_ScoreValueText.text = score.ToString();
@@ -134,13 +133,17 @@ namespace CuteGothicCatcher.UI
                 m_DestroyedValueSlots[item.Key].SetActive(item.Value > 0);
             }
         }
+        #endregion
 
         #region Anim Methods
         protected override void OpenAnim(UnityAction onEndAction = null)
         {
             gameObject.SetActive(true);
 
+            m_CloseSeq?.Kill();
+
             Sequence openSeq = DOTween.Sequence();
+            m_OpenSeq = openSeq;
 
             openSeq.Append(m_Image.DOFade(m_StartAlfa, m_ImageFadeTime));
             openSeq.Join(m_GameOverText.transform.DOScale(1, m_OtherOpenTime));
@@ -168,7 +171,10 @@ namespace CuteGothicCatcher.UI
         }
         protected override void CloseAnim(UnityAction onEndAction = null)
         {
+            m_OpenSeq?.Kill();
+
             Sequence closeSeq = DOTween.Sequence();
+            m_CloseSeq = closeSeq;
 
             closeSeq.Append(m_Image.DOFade(0, m_ImageFadeTime));
             closeSeq.Join(m_GameOverText.transform.DOScale(0, m_OtherCloseTime));

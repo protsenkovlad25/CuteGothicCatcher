@@ -126,13 +126,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6649898294a0bc428ca3ad4af496138, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_TimerArea: {fileID: 1082701440778056675}
-  m_TimerIcon: {fileID: 1995760445771149118}
+  m_Direction: 3
   m_OpenTime: 0.1
   m_CloseTime: 0.1
   m_WaitTime: 2
   m_RotateTime: 0.75
   m_Ease: 1
+  m_TimerArea: {fileID: 1082701440778056675}
+  m_TimerIcon: {fileID: 1995760445771149118}
 --- !u!1 &6888388428207062735
 GameObject:
   m_ObjectHideFlags: 0

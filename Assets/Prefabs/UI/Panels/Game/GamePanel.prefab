@@ -92,6 +92,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ScorePanel
       objectReference: {fileID: 0}
+    - target: {fileID: 9101346262705177295, guid: d14387b20e38a8f48aecf83405c8eb3e, type: 3}
+      propertyPath: m_Direction
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -585,12 +589,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b8feb2e3f03f3640bccb28fb8f0f4d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Direction: 0
+  m_OpenTime: 0.1
+  m_CloseTime: 0.1
   m_PauseButton: {fileID: 5491645137201056994}
   m_GameTimer: {fileID: 9179781736341590210}
   m_ScorePanel: {fileID: 6158571764602279147}
   m_PlacedItemsPanel: {fileID: 3963687380123830301}
-  m_OpenTime: 0.1
-  m_CloseTime: 0.1
 --- !u!224 &7797427398241102691 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1879760795114130044, guid: d4a87c00aca90df4ca7f0b89b310c07c, type: 3}

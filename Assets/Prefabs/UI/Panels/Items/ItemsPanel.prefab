@@ -76,6 +76,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71b4b44712f504a45835120abf6bdb9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Direction: 0
+  m_OpenTime: 0.1
+  m_CloseTime: 0.1
   m_Layout: {fileID: 5357934192936704439}
   m_SlotPrefab: {fileID: 1234707941295501601, guid: 3bf9df4bcb4737148b0641f675d50ea3, type: 3}
 --- !u!114 &8517750950244996937

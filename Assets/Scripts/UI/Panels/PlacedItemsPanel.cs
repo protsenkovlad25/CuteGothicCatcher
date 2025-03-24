@@ -14,26 +14,17 @@ namespace CuteGothicCatcher.UI
         [Header("Objects")]
         [SerializeField] private HorizontalLayoutGroup m_HorLayout;
         [SerializeField] private PlacedItemSlot m_SlotPrefab;
-        [Header("Anim Values")]
-        [SerializeField] private float m_OpenTime;
-        [SerializeField] private float m_CloseTime;
 
         private List<PlacedItemSlot> m_Slots;
         private PlacedItemSlot m_SelectedSlot;
 
         private Vector2 m_StartPos;
-        private RectTransform m_RectTransform;
 
         public override void Init()
         {
             base.Init();
 
             InitSlots();
-
-            m_RectTransform = GetComponent<RectTransform>();
-            m_StartPos = m_RectTransform.anchoredPosition;
-
-            m_RectTransform.anchoredPosition = new Vector2(m_RectTransform.anchoredPosition.x, -m_RectTransform.sizeDelta.y);
         }
 
         #region Slots Methods
@@ -107,7 +98,10 @@ namespace CuteGothicCatcher.UI
         {
             gameObject.SetActive(true);
 
+            m_CloseSeq?.Kill();
+
             Sequence openSeq = DOTween.Sequence();
+            m_OpenSeq = openSeq;
 
             openSeq.Append(m_RectTransform.DOAnchorPosY(m_StartPos.y, m_OpenTime));
 
@@ -118,7 +112,10 @@ namespace CuteGothicCatcher.UI
         }
         protected override void CloseAnim(UnityAction onEndAction = null)
         {
+            m_OpenSeq?.Kill();
+
             Sequence closeSeq = DOTween.Sequence();
+            m_CloseSeq = closeSeq;
 
             closeSeq.Append(m_RectTransform.DOAnchorPosY(-m_RectTransform.sizeDelta.y, m_CloseTime));
             closeSeq.AppendCallback(() => { gameObject.SetActive(false); });

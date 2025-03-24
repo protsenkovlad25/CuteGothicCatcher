@@ -13,15 +13,11 @@ namespace CuteGothicCatcher.UI
         [SerializeField] private ScorePanel m_ScorePanel;
         [SerializeField] private PlacedItemsPanel m_PlacedItemsPanel;
 
-        [Header("Anim Times")]
-        [SerializeField] private float m_OpenTime;
-        [SerializeField] private float m_CloseTime;
-
         private Vector2 m_StartButtonPos;
 
-        public override void Init()
+        protected override void InitStartPosition()
         {
-            base.Init();
+            base.InitStartPosition();
 
             RectTransform rectTransform = m_PauseButton.GetComponent<RectTransform>();
             m_StartButtonPos = rectTransform.anchoredPosition;
@@ -34,9 +30,12 @@ namespace CuteGothicCatcher.UI
         {
             gameObject.SetActive(true);
 
+            m_CloseSeq?.Kill();
+
             RectTransform rectTransform = m_PauseButton.GetComponent<RectTransform>();
 
             Sequence openSeq = DOTween.Sequence();
+            m_OpenSeq = openSeq;
 
             openSeq.Append(rectTransform.DOAnchorPosY(m_StartButtonPos.y, m_OpenTime));
             openSeq.JoinCallback(() =>
@@ -53,9 +52,12 @@ namespace CuteGothicCatcher.UI
         }
         protected override void CloseAnim(UnityAction onEndAction = null)
         {
+            m_OpenSeq?.Kill();
+
             RectTransform rectTransform = m_PauseButton.GetComponent<RectTransform>();
 
             Sequence closeSeq = DOTween.Sequence();
+            m_CloseSeq = closeSeq;
 
             closeSeq.Append(rectTransform.DOAnchorPosY(rectTransform.sizeDelta.y, m_CloseTime));
             closeSeq.JoinCallback(() =>

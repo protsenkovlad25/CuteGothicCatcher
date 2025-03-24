@@ -6,6 +6,7 @@ namespace CuteGothicCatcher.Core.Controllers
     public class ScoreController : Controller
     {
         [SerializeField] private ScorePanel m_ScorePanel;
+        [SerializeField] private ScorePanel m_BestScorePanel;
 
         private int m_CurrentScore;
 
@@ -14,6 +15,7 @@ namespace CuteGothicCatcher.Core.Controllers
         public override void Init()
         {
             m_ScorePanel.Init();
+            m_BestScorePanel.SetScoreValue(PlayerController.PlayerData.MaxScore);
 
             ClearScore();
 
@@ -33,8 +35,8 @@ namespace CuteGothicCatcher.Core.Controllers
         public void SaveScore()
         {
             PlayerController.PlayerData.SetScore(m_CurrentScore);
+            m_BestScorePanel.SetScoreValue(PlayerController.PlayerData.MaxScore);
         }
-
         public void UpdateScore()
         {
             m_ScorePanel.SetScoreValue(m_CurrentScore);

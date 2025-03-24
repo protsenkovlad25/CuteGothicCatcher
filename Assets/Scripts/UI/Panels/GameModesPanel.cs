@@ -9,14 +9,13 @@ namespace CuteGothicCatcher.UI
 {
     public class GameModesPanel : Panel
     {
-        [Header("Objects")]
-        [SerializeField] private List<Button> m_Buttons;
-        [SerializeField] private TMP_Text m_GameModesText;
-
-        [Header("Anim Values")]
         [SerializeField] private float m_ButtonsOpenTime;
         [SerializeField] private float m_ButtonsCloseTime;
         [SerializeField] private float m_Padding;
+
+        [Header("Objects")]
+        [SerializeField] private List<Button> m_Buttons;
+        [SerializeField] private TMP_Text m_GameModesText;
 
         private List<Vector2> m_ButtonsStartPos;
         private Vector2 m_TextStartPos;
@@ -24,15 +23,10 @@ namespace CuteGothicCatcher.UI
         private Sequence m_OpenSequence;
         private Sequence m_CloseSequence;
 
-        public override void Init()
+        protected override void InitStartPosition()
         {
-            base.Init();
+            base.InitStartPosition();
 
-            InitButtons();
-        }
-
-        private void InitButtons()
-        {
             RectTransform textRectTransform = m_GameModesText.GetComponent<RectTransform>();
             m_TextStartPos = textRectTransform.anchoredPosition;
             textRectTransform.anchoredPosition = new Vector2(-textRectTransform.sizeDelta.x, textRectTransform.anchoredPosition.y);
