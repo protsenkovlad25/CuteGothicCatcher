@@ -35,6 +35,7 @@ namespace CuteGothicCatcher.Core
         }
         private void InitGame()
         {
+            m_InterfaceController.OpenPanel(typeof(GameNamePanel));
             m_InterfaceController.OpenPanel(typeof(MenuPanel));
             m_InterfaceController.OpenPanel(typeof(ScorePanel));
             m_InterfaceController.OpenPanel(typeof(ItemsPanel));
@@ -48,6 +49,7 @@ namespace CuteGothicCatcher.Core
         }
         public void StartGame(GameMode mode)
         {
+            m_InterfaceController.ClosePanel(typeof(GameNamePanel));
             m_InterfaceController.ClosePanel(typeof(GameModesPanel));
             m_InterfaceController.ClosePanel(typeof(ScorePanel));
             m_InterfaceController.OpenPanel(typeof(GamePanel));
@@ -81,6 +83,7 @@ namespace CuteGothicCatcher.Core
         public void ReturnToMenu()
         {
             m_InterfaceController.CloseAllOpenedPanels();
+            m_InterfaceController.OpenPanel(typeof(GameNamePanel));
             m_InterfaceController.OpenPanel(typeof(MenuPanel));
             m_InterfaceController.OpenPanel(typeof(ScorePanel));
             m_InterfaceController.OpenPanel(typeof(ItemsPanel));
