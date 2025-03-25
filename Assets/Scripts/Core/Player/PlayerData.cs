@@ -13,17 +13,20 @@ namespace CuteGothicCatcher.Core.Player
 
         [SerializeField] private int m_MaxScore;
         [SerializeField] private int m_LastScore;
+        [SerializeField] private int m_ClicksOnCat;
         [SerializeField] private Dictionary<EntityType, int> m_Items;
 
         public int Hearts => m_Items[EntityType.Heart];
         public int MaxScore { get => m_MaxScore; set => m_MaxScore = value; }
         public int LastScore { get => m_LastScore; set => m_LastScore = value; }
+        public int ClicksOnCat { get => m_ClicksOnCat; set => m_ClicksOnCat = value; }
         public Dictionary<EntityType, int> Items { get => m_Items; set => m_Items = value; }
 
         public PlayerData()
         {
             m_MaxScore = 0;
             m_LastScore = 0;
+            m_ClicksOnCat = 0;
 
             m_Items = new Dictionary<EntityType, int>();
 
@@ -81,6 +84,13 @@ namespace CuteGothicCatcher.Core.Player
 
             if (m_LastScore > m_MaxScore)
                 m_MaxScore = m_LastScore;
+
+            OnChanged?.Invoke();
+        }
+
+        public void ClickOnCat()
+        {
+            m_ClicksOnCat++;
 
             OnChanged?.Invoke();
         }

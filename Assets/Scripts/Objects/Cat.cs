@@ -1,4 +1,5 @@
 using CuteGothicCatcher.Core;
+using CuteGothicCatcher.Core.Controllers;
 using CuteGothicCatcher.Core.Interfaces;
 using System.Collections.Generic;
 using System.Linq;
@@ -53,6 +54,12 @@ namespace CuteGothicCatcher.Objects
             particle.transform.localScale = Vector3.one;
         }
 
+        private void Click()
+        {
+            SpawnParticle();
+            PlayerController.PlayerData.ClickOnCat();
+        }
+
         private void SpawnParticle()
         {
             Particle particle = GetRandomParticle();
@@ -82,7 +89,7 @@ namespace CuteGothicCatcher.Objects
 
         private void OnMouseDown()
         {
-            SpawnParticle();
+            Click();
         }
     }
 }
