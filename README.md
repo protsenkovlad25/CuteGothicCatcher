@@ -10,6 +10,9 @@ The game features multiple modes, with the first being the **"Timer Mode"**. The
 <p>
   <img src="Assets/Art/Screenshots/Screenshot_1.jpg" width="180" alt="Screenshot1"/>
   <img src="Assets/Art/Screenshots/Screenshot_2.jpg" width="180" alt="Screenshot2"/>
+  <img src="Assets/Art/Screenshots/Screenshot_4.jpg" width="180" alt="Screenshot3"/>
+</p>
+<p>
   <img src="Assets/Art/Gifs/Gif_1.gif" width="180" alt="Gif1"/>
   <img src="Assets/Art/Gifs/Gif_2.gif" width="180" alt="Gif2"/>
   <img src="Assets/Art/Gifs/Gif_4.gif" width="180" alt="Gif3"/>
