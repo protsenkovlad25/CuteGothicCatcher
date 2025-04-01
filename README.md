@@ -1,4 +1,4 @@
-# 🐈💀 Gothic Kitty 🕸👻
+# <img src="Assets/Art/Sprites/Entities/Heart.png" width="50" alt="Heart Entity"/> <img src="Assets/Art/Sprites/Entities/Kitty_3.png" width="50" alt="Kitty Entity"/> Gothic Kitty <img src="Assets/Art/Sprites/Entities/Scull.png" width="50" alt="Scull Entity"/> <img src="Assets/Art/Sprites/Entities/Web_2.png" width="50" alt="Web Entity"/>  
 ## 🕹 Game Description
 
 This is a mobile game with a gothic yet cute visual style. It’s designed to be simple but engaging — perfect for passing time while commuting or taking short breaks.
@@ -7,22 +7,24 @@ This is a mobile game with a gothic yet cute visual style. It’s designed to be
 
 The game features multiple modes, with the first being the **"Timer Mode"**. The goal is to score as many points as possible before the timer runs out and collect hearts — the game’s main currency. Hearts can be used to purchase helpful items during gameplay.
 
-## 🎮 Screenshots / Gifs
+## 📱 Screenshots / Gifs
 
 ## 🎮 Gameplay Elements
 
 - **Appearing Entities:**
-  - ❤ *Hearts* — clickable, grant points.
-  - 💀 *Skulls* — clickable, reduce points. If caught in a web, they grant points.
-  - ⚰️ *Tombstones* — can be broken by clicking; they destroy hearts, repel skulls, and give points upon destruction.
+  - <img src="Assets/Art/Sprites/Entities/Heart.png" width="20" alt="Heart Icon"/> *Hearts* — clickable, grant points.
+  - <img src="Assets/Art/Sprites/Entities/Scull.png" width="20" alt="Scull Icon"/> *Skulls* — clickable, reduce points. If caught in a web, they grant points.
+  - <img src="Assets/Art/Sprites/Entities/Tombstone.png" width="20" alt="Tombstone Icon"/> *Tombstones* — can be broken by clicking; they destroy hearts, repel skulls, and give points upon destruction.
 
 - **Placeable Entities:**
-  - 🕸️ *Webs* — slow down skulls, but eventually break.
-  - 🐱 *Kitten* — collects hearts and destroys skulls but can be damaged by them.
+  - <img src="Assets/Art/Sprites/Entities/Web_2.png" width="20" alt="Web Icon"/> *Webs* — slow down skulls, but eventually break.
+  - <img src="Assets/Art/Sprites/Entities/Kitty_3.png" width="20" alt="Kitty Icon"/> *Kitten* — collects hearts and destroys skulls but can be damaged by them.
 
 There are also **timer-based entities** (hearts and skulls) that extend or reduce the time limit when collected.
 
 On the main screen, the player is greeted by an **animated kitten**, who acts as the game’s mascot and companion. The kitten reacts to clicks, releases hearts, and meows. In future updates, it will be able to speak phrases, give tips, and perform idle actions like playing, grooming, or sleeping depending on the time spent on the menu.
+
+<img src="Assets/Art/Sprites/Other/CatReference.png" width="100" alt="Cat Entity"/>
 
 ## ✨ Features
 
