@@ -8,6 +8,13 @@ This is a mobile game with a gothic yet cute visual style. It’s designed to be
 The game features multiple modes, with the first being the **"Timer Mode"**. The goal is to score as many points as possible before the timer runs out and collect hearts — the game’s main currency. Hearts can be used to purchase helpful items during gameplay.
 
 ## 📱 Screenshots / Gifs
+<p>
+  <img src="Assets/Art/Screenshots/Screenshot_1.jpg" width="200" alt="Screenshot1"/>
+  <img src="Assets/Art/Screenshots/Screenshot_2.jpg" width="200" alt="Screenshot2"/>
+  <img src="Assets/Art/Gifs/Gif_1.gif" width="200" alt="Gif1"/>
+  <img src="Assets/Art/Gifs/Gif_2.gif" width="200" alt="Gif2"/>
+  <img src="Assets/Art/Gifs/Gif_3.gif" width="200" alt="Gif3"/>
+</p>
 
 ## 🎮 Gameplay Elements
 
