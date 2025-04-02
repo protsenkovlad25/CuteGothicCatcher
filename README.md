@@ -37,7 +37,7 @@ There are also **timer-based entities** (hearts and skulls) that extend or reduc
       <img src="Assets/Art/Sprites/Other/CatReference.png" width="350" alt="Cat Entity"/>
     </td>
     <td style="padding-left: 20px;">
-      <p>On the main screen, the player is greeted by an **animated kitty**, who acts as the game’s mascot and companion. The kitty reacts to clicks, releases hearts, and meows. In future updates, it will be able to speak phrases, give tips, and perform idle actions like playing, grooming, or sleeping depending on the time spent on the menu.</p>
+      <p>On the main screen, the player is greeted by an animated kitty, who acts as the game’s mascot and companion. The kitty reacts to clicks, releases hearts, and meows. In future updates, it will be able to speak phrases, give tips, and perform idle actions like playing, grooming, or sleeping depending on the time spent on the menu.</p>
     </td>
   </tr>
 </table>
@@ -55,7 +55,7 @@ There are also **timer-based entities** (hearts and skulls) that extend or reduc
 ## 📦 Installation and Launch
 1. Clone the repository:
    ```bash
-   git clone https://github.com/твоя_ссылка/название.git
+   git clone https://github.com/protsenkovlad25/CuteGothicCatcher.git
    ```
 2. Open the project in Unity (version 2022.3.45f1 or higher).
 3. Launch the SampleScene via Assets/Scenes.
@@ -65,6 +65,8 @@ There are also **timer-based entities** (hearts and skulls) that extend or reduc
 - Unity 2022.3.45f1 LTS
 - TextMeshPro
 - DOTween
+- LunarConsole
+- NewtonsoftJSON
 
 ## 🔨 Build Instructions
 1. Go to **File → Build Settings**
