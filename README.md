@@ -1,23 +1,24 @@
-# <img src="Assets/Art/Sprites/Entities/Heart.png" width="50" alt="Heart Entity"/> <img src="Assets/Art/Sprites/Entities/Kitty_3.png" width="50" alt="Kitty Entity"/> Gothic Kitty <img src="Assets/Art/Sprites/Entities/Scull.png" width="50" alt="Scull Entity"/> <img src="Assets/Art/Sprites/Entities/Web_2.png" width="50" alt="Web Entity"/>  
-## 🕹 Game Description
+# <img src="Assets/Art/Sprites/Entities/Heart.png" width="40" alt="Heart Entity"/> <img src="Assets/Art/Sprites/Entities/Kitty_3.png" width="40" alt="Kitty Entity"/> Gothic Kitty <img src="Assets/Art/Sprites/Entities/Scull.png" width="40" alt="Scull Entity"/> <img src="Assets/Art/Sprites/Entities/Web_2.png" width="40" alt="Web Entity"/>
 
+## 🕹 Game Description
 This is a mobile game with a gothic yet cute visual style. It’s designed to be simple but engaging — perfect for passing time while commuting or taking short breaks.
 
 ## 🧠 The Goal of the Game
-
 The game features multiple modes, with the first being the **"Timer Mode"**. The goal is to score as many points as possible before the timer runs out and collect hearts — the game’s main currency. Hearts can be used to purchase helpful items during gameplay.
 
 ## 📱 Screenshots / Gifs
 <p>
-  <img src="Assets/Art/Screenshots/Screenshot_1.jpg" width="200" alt="Screenshot1"/>
-  <img src="Assets/Art/Screenshots/Screenshot_2.jpg" width="200" alt="Screenshot2"/>
-  <img src="Assets/Art/Gifs/Gif_1.gif" width="200" alt="Gif1"/>
-  <img src="Assets/Art/Gifs/Gif_2.gif" width="200" alt="Gif2"/>
-  <img src="Assets/Art/Gifs/Gif_3.gif" width="200" alt="Gif3"/>
+  <img src="Assets/Art/Screenshots/Screenshot_1.jpg" width="180" alt="Screenshot1"/>
+  <img src="Assets/Art/Screenshots/Screenshot_2.jpg" width="180" alt="Screenshot2"/>
+  <img src="Assets/Art/Screenshots/Screenshot_4.jpg" width="180" alt="Screenshot3"/>
+</p>
+<p>
+  <img src="Assets/Art/Gifs/Gif_1.gif" width="180" alt="Gif1"/>
+  <img src="Assets/Art/Gifs/Gif_2.gif" width="180" alt="Gif2"/>
+  <img src="Assets/Art/Gifs/Gif_4.gif" width="180" alt="Gif3"/>
 </p>
 
 ## 🎮 Gameplay Elements
-
 - **Appearing Entities:**
   - <img src="Assets/Art/Sprites/Entities/Heart.png" width="20" alt="Heart Icon"/> *Hearts* — clickable, grant points.
   - <img src="Assets/Art/Sprites/Entities/Scull.png" width="20" alt="Scull Icon"/> *Skulls* — clickable, reduce points. If caught in a web, they grant points.
@@ -29,36 +30,43 @@ The game features multiple modes, with the first being the **"Timer Mode"**. The
 
 There are also **timer-based entities** (hearts and skulls) that extend or reduce the time limit when collected.
 
-On the main screen, the player is greeted by an **animated kitten**, who acts as the game’s mascot and companion. The kitten reacts to clicks, releases hearts, and meows. In future updates, it will be able to speak phrases, give tips, and perform idle actions like playing, grooming, or sleeping depending on the time spent on the menu.
-
-<img src="Assets/Art/Sprites/Other/CatReference.png" width="100" alt="Cat Entity"/>
+- **Kitty-Companion**
+<table>
+  <tr>
+    <td>
+      <img src="Assets/Art/Sprites/Other/CatReference.png" width="350" alt="Cat Entity"/>
+    </td>
+    <td style="padding-left: 20px;">
+      <p>On the main screen, the player is greeted by an animated kitty, who acts as the game’s mascot and companion. The kitty reacts to clicks, releases hearts, and meows. In future updates, it will be able to speak phrases, give tips, and perform idle actions like playing, grooming, or sleeping depending on the time spent on the menu.</p>
+    </td>
+  </tr>
+</table>
 
 ## ✨ Features
-
 - **Gothic and cute aesthetic** — a charming blend of cozy visuals and a slightly eerie atmosphere.
 - **Timer-based gameplay** — try to collect as many points and hearts as possible before time runs out.
 - **Simple click-based mechanics** — perfect for quick play sessions during short breaks.
 - **Light strategy elements** — choose when and where to place entities to maximize your score and heart collection.
 - **Multiple game modes** — Timer, Story, Levels.
 - **Variety of entities** — each with unique features that influence gameplay.
-- **Animated kitten-companion** — the main character and your helper, keeping you company with cute animations.
+- **Animated kitty-companion** — the main character and your helper, keeping you company with cute animations.
 - **In-Game shop** — unlock decorations, backgrounds, upgrades, and more using collected hearts.
 
 ## 📦 Installation and Launch
-
 1. Clone the repository:
    ```bash
-   git clone https://github.com/твоя_ссылка/название.git
+   git clone https://github.com/protsenkovlad25/CuteGothicCatcher.git
    ```
 2. Open the project in Unity (version 2022.3.45f1 or higher).
 3. Launch the SampleScene via Assets/Scenes.
 4. Press ▶ to start.
 
 ## ⚙️ Dependencies
-
 - Unity 2022.3.45f1 LTS
 - TextMeshPro
 - DOTween
+- LunarConsole
+- NewtonsoftJSON
 
 ## 🔨 Build Instructions
 1. Go to **File → Build Settings**
@@ -76,7 +84,7 @@ On the main screen, the player is greeted by an **animated kitten**, who acts as
 - **In-game purchases** (buy hearts with real currency)
 - **Codex** with descriptions of items and entities
 - **Game modes**: Story Mode and Levels Mode
-- Kitten **animations and behaviors**
+- Kitty **animations and behaviors**
 - **New entities**
 - **Settings**
 - **Balance** of game modes and entities
