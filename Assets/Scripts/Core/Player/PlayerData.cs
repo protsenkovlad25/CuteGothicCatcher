@@ -44,7 +44,7 @@ namespace CuteGothicCatcher.Core.Player
             EventManager.OnCollectEntity.AddListener(CollectEntity);
         }
 
-        private void CollectEntity(EntityType type, float points)
+        public void CollectEntity(EntityType type, float points)
         {
             int oldCount = m_Items[type];
             m_Items[type]++;

@@ -1,0 +1,48 @@
+using CuteGothicCatcher.Core.Interfaces;
+using UnityEngine;
+
+namespace CuteGothicCatcher.Core
+{
+    [System.Serializable]
+    public abstract class Quest : MonoBehaviour, IIniting
+    {
+        [SerializeField] protected QuestData m_Data;
+
+        public QuestData Data => m_Data;
+
+        public virtual void Init()
+        {
+
+        }
+
+        public virtual void SetaData(QuestData data)
+        {
+            m_Data = data;
+        }
+
+        public virtual void GiveReward()
+        {
+            if (m_Data.IsCompleted && !m_Data.IsReceived)
+            {
+                m_Data.Reward.Give();
+            }
+        }
+
+        public virtual void UpdateProgress(int value)
+        {
+            if (!m_Data.Progress.IsComplete)
+            {
+                m_Data.Progress.SetProgress(value);
+
+                if (m_Data.Progress.IsComplete)
+                    Complete();
+            }
+            else return;
+        }
+
+        public virtual void Complete()
+        {
+            GiveReward();
+        }
+    }
+}

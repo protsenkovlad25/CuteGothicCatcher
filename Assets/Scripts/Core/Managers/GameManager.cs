@@ -20,7 +20,7 @@ namespace CuteGothicCatcher.Core
         #region Init
         public void Init()
         {
-            PoolResources.LoadObjects();
+            PoolResources.LoadAll();
 
             PlayerController.Init();
 
