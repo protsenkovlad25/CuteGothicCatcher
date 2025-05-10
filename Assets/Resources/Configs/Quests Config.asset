@@ -12,9 +12,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a4164ea9994506449d14a17543209af, type: 3}
   m_Name: Quests Config
   m_EditorClassIdentifier: 
-  m_LocalQuestPrefabs:
-  - {fileID: -323153295421121603, guid: c5f7a12234d764a48824ecedebcd5779, type: 3}
-  - {fileID: -323153295421121603, guid: 08a9179711425e44fa68657ed9c768b4, type: 3}
-  m_GlobalQuestPrefabs:
-  - {fileID: -323153295421121603, guid: ea32865f98de76b4eaf439158c800c88, type: 3}
-  - {fileID: -323153295421121603, guid: 665a91e41d119394cb2c1128eac6dc7b, type: 3}
+  m_LocalQuestDatas:
+  - m_QuestPrefab: {fileID: -323153295421121603, guid: c5f7a12234d764a48824ecedebcd5779, type: 3}
+    m_IsUsed: 1
+    m_Weight: 30
+  - m_QuestPrefab: {fileID: -323153295421121603, guid: 08a9179711425e44fa68657ed9c768b4, type: 3}
+    m_IsUsed: 1
+    m_Weight: 20
+  - m_QuestPrefab: {fileID: -323153295421121603, guid: 2af555cfb1cde6d478da45d9e9b41994, type: 3}
+    m_IsUsed: 1
+    m_Weight: 30
+  - m_QuestPrefab: {fileID: -323153295421121603, guid: 787458df6803dbb4e9606d3e32a34615, type: 3}
+    m_IsUsed: 1
+    m_Weight: 20
+  m_GlobalQuestDatas:
+  - m_QuestPrefab: {fileID: -323153295421121603, guid: ea32865f98de76b4eaf439158c800c88, type: 3}
+    m_IsUsed: 1
+    m_Weight: 0
+  - m_QuestPrefab: {fileID: -323153295421121603, guid: 665a91e41d119394cb2c1128eac6dc7b, type: 3}
+    m_IsUsed: 1
+    m_Weight: 0
