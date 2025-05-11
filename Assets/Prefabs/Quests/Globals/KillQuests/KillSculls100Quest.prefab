@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Data:
     m_Id: killSculls100
     m_Title: Kill Sculls
-    m_Description: Need kill # sculls
+    m_Description: Need to kill # sculls
     m_Type: 0
     m_Progress:
       m_Current: 0

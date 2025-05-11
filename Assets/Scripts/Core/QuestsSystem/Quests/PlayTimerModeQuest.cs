@@ -1,18 +1,23 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+using CuteGothicCatcher.Core.Controllers;
 
-public class PlayTimerModeQuest : MonoBehaviour
+namespace CuteGothicCatcher.Core
 {
-    // Start is called before the first frame update
-    void Start()
+    [System.Serializable]
+    public class PlayTimerModeQuest : Quest
     {
-        
-    }
+        protected override void Subscribe()
+        {
+            GameTimerController.OnTimerEnd.AddListener(EndTimerMode);
+        }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        protected override void Unsubscribe()
+        {
+            GameTimerController.OnTimerEnd.RemoveListener(EndTimerMode);
+        }
+
+        private void EndTimerMode()
+        {
+            UpdateProgress(1);
+        }
     }
 }

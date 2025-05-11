@@ -3,7 +3,7 @@ using UnityEngine;
 namespace CuteGothicCatcher.Core
 {
     [System.Serializable]
-    public class QuestProgress
+    public struct QuestProgress
     {
         [SerializeField] private int m_Current;
         [SerializeField] private int m_Required;
@@ -18,9 +18,9 @@ namespace CuteGothicCatcher.Core
             m_Required = required;
         }
 
-        public void SetProgress(int value)
+        public void SetProgress(int value, bool isTotal)
         {
-            m_Current += value;
+            m_Current = isTotal ? value : m_Current + value;
         }
     }
 }

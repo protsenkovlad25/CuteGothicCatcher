@@ -16,8 +16,6 @@ namespace CuteGothicCatcher.Core.Controllers
         {
             LoadGlobalQuests();
             LoadLocalQuests();
-
-            CreateLocalQuests(2);
         }
 
         private void LoadGlobalQuests()
@@ -31,13 +29,41 @@ namespace CuteGothicCatcher.Core.Controllers
 
         public void CreateLocalQuests(int count)
         {
-            Quest quest;
+            Quest newQuest;
             for (int i = 0; i < count; i++)
             {
-                quest = QuestsBuilder.CreateRandLocalQuest(m_LocalQuestsParent, m_LocalQuests.Keys.ToList());
+                newQuest = QuestsBuilder.CreateRandLocalQuest(m_LocalQuestsParent, m_LocalQuests.Keys.ToList());
 
-                m_LocalQuests.Add(quest.Data.Id, quest);
+                m_LocalQuests.Add(newQuest.Data.Id, newQuest);
             }
+        }
+
+        public void DestroyLocalQuests()
+        {
+            for (int i = m_LocalQuests.Count - 1; i >= 0; i--)
+                DestroyQuest(m_LocalQuests.ElementAt(i).Value);
+        }
+        private void DestroyQuest(Quest quest)
+        {
+            m_LocalQuests.Remove(quest.Data.Id);
+
+            Destroy(quest.gameObject);
+        }
+
+        private void SaveQuests()
+        {
+            QuestsSaver.SaveQuests(m_GlobalQuests.Values.ToList());
+        }
+
+        public void GiveQuestRewards()
+        {
+            foreach (var quest in m_LocalQuests.Values)
+                quest.GiveReward();
+        }
+
+        private void OnApplicationQuit()
+        {
+            SaveQuests();
         }
     }
 }

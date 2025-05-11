@@ -1,18 +1,27 @@
-using System.Collections;
-using System.Collections.Generic;
+using CuteGothicCatcher.Entities;
 using UnityEngine;
 
-public class CollectEntitiesQuest : MonoBehaviour
+namespace CuteGothicCatcher.Core
 {
-    // Start is called before the first frame update
-    void Start()
+    [System.Serializable]
+    public class CollectEntitiesQuest : Quest
     {
-        
-    }
+        [SerializeField] private EntityType m_EntityType;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        protected override void Subscribe()
+        {
+            EventManager.OnCollectEntity.AddListener(CollectEntity);
+        }
+
+        protected override void Unsubscribe()
+        {
+            EventManager.OnCollectEntity.RemoveListener(CollectEntity);
+        }
+
+        private void CollectEntity(EntityType type, float scorePoints)
+        {
+            if (type == m_EntityType)
+                UpdateProgress(1);
+        }
     }
 }

@@ -42,6 +42,7 @@ namespace CuteGothicCatcher.Core.Player
             }
 
             EventManager.OnCollectEntity.AddListener(CollectEntity);
+            EventManager.OnCatClick.AddListener(ClickOnCat);
         }
 
         public void CollectEntity(EntityType type, float points)

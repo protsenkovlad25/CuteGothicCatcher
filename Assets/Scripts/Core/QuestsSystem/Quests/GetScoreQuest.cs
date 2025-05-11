@@ -1,18 +1,23 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+using CuteGothicCatcher.Core.Controllers;
 
-public class GetScoreQuest : MonoBehaviour
+namespace CuteGothicCatcher.Core
 {
-    // Start is called before the first frame update
-    void Start()
+    [System.Serializable]
+    public class GetScoreQuest : Quest
     {
-        
-    }
+        protected override void Subscribe()
+        {
+            ScoreController.OnUpdatedScore.AddListener(SetScore);
+        }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        protected override void Unsubscribe()
+        {
+            ScoreController.OnUpdatedScore.RemoveListener(SetScore);
+        }
+
+        public void SetScore(int score)
+        {
+            UpdateProgress(score, true);
+        }
     }
 }

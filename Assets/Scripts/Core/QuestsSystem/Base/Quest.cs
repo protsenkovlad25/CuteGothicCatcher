@@ -6,14 +6,19 @@ namespace CuteGothicCatcher.Core
     [System.Serializable]
     public abstract class Quest : MonoBehaviour, IIniting
     {
+        public System.Action OnCompleted;
+
         [SerializeField] protected QuestData m_Data;
 
         public QuestData Data => m_Data;
 
         public virtual void Init()
         {
-
+            Subscribe();
         }
+
+        protected abstract void Subscribe();
+        protected abstract void Unsubscribe();
 
         public virtual void SetaData(QuestData data)
         {
@@ -22,19 +27,19 @@ namespace CuteGothicCatcher.Core
 
         public virtual void GiveReward()
         {
-            if (m_Data.IsCompleted && !m_Data.IsReceived)
+            if (m_Data.IsComplete && !m_Data.IsReceived)
             {
-                m_Data.Reward.Give();
+                m_Data.GiveReward();
             }
         }
 
-        public virtual void UpdateProgress(int value)
+        public virtual void UpdateProgress(int value, bool isTotal = false)
         {
-            if (!m_Data.Progress.IsComplete)
+            if (!m_Data.IsComplete)
             {
-                m_Data.Progress.SetProgress(value);
+                m_Data.SetProgress(value, isTotal);
 
-                if (m_Data.Progress.IsComplete)
+                if (m_Data.IsComplete)
                     Complete();
             }
             else return;
@@ -42,7 +47,15 @@ namespace CuteGothicCatcher.Core
 
         public virtual void Complete()
         {
-            GiveReward();
+            OnCompleted?.Invoke();
+            EventManager.CompleteQuest(m_Data.Id);
+
+            Unsubscribe();
+        }
+
+        protected virtual void OnDestroy()
+        {
+            Unsubscribe();
         }
     }
 }

@@ -1,18 +1,23 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+using CuteGothicCatcher.Core.Controllers;
 
-public class TimerEndQuest : MonoBehaviour
+namespace CuteGothicCatcher.Core
 {
-    // Start is called before the first frame update
-    void Start()
+    [System.Serializable]
+    public class TimerEndQuest : Quest
     {
-        
-    }
+        protected override void Subscribe()
+        {
+            TimerGameModeController.OnEndTimerGame.AddListener(TimerEnd);
+        }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        protected override void Unsubscribe()
+        {
+            TimerGameModeController.OnEndTimerGame.RemoveListener(TimerEnd);
+        }
+
+        private void TimerEnd()
+        {
+            UpdateProgress(1);
+        }
     }
 }

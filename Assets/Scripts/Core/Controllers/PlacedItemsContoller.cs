@@ -17,6 +17,7 @@ namespace CuteGothicCatcher.Core.Controllers
             m_PlacedItemsPanel.OnSelectSlot = SelectSlot;
         }
 
+        #region Slot Methods
         private void SelectSlot(PlacedItemSlot slot)
         {
             m_SelectedSlot = slot;
@@ -36,12 +37,15 @@ namespace CuteGothicCatcher.Core.Controllers
             DeselectSlot();
             m_PlacedItemsPanel.DisactiveSlots();
         }
+        #endregion
 
         private void BuyAndSpawnItem(Vector2 position)
         {
             m_EntitiesController.SpawnEntity(m_SelectedSlot.ItemType, position);
 
             PlayerController.PlayerData.SpendHearts(m_SelectedSlot.Price);
+
+            EventManager.PlacedItem(m_SelectedSlot.ItemType);
 
             RechargeSlot();
         }

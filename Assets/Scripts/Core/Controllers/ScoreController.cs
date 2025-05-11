@@ -1,10 +1,13 @@
 using CuteGothicCatcher.UI;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace CuteGothicCatcher.Core.Controllers
 {
     public class ScoreController : Controller
     {
+        public static UnityEvent<int> OnUpdatedScore = new ();
+
         [SerializeField] private ScorePanel m_ScorePanel;
         [SerializeField] private ScorePanel m_BestScorePanel;
 
@@ -40,6 +43,8 @@ namespace CuteGothicCatcher.Core.Controllers
         public void UpdateScore()
         {
             m_ScorePanel.SetScoreValue(m_CurrentScore);
+
+            OnUpdatedScore?.Invoke(m_CurrentScore);
         }
     }
 }

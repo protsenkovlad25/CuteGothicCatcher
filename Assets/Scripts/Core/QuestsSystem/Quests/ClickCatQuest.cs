@@ -1,18 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class ClickCatQuest : MonoBehaviour
+namespace CuteGothicCatcher.Core
 {
-    // Start is called before the first frame update
-    void Start()
+    [System.Serializable]
+    public class ClickCatQuest : Quest
     {
-        
-    }
+        protected override void Subscribe()
+        {
+            EventManager.OnCatClick.AddListener(ClickCat);
+        }
+        protected override void Unsubscribe()
+        {
+            EventManager.OnCatClick.RemoveListener(ClickCat);
+        }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        private void ClickCat()
+        {
+            UpdateProgress(1);
+        }
     }
 }

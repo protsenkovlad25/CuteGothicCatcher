@@ -6,6 +6,7 @@ namespace CuteGothicCatcher.Core
     [System.Serializable]
     public struct QuestData
     {
+        #region SerializeFields
         [JsonProperty("id")]
         [SerializeField] private string m_Id;
         [JsonProperty("title")]
@@ -20,7 +21,9 @@ namespace CuteGothicCatcher.Core
         [SerializeField] private QuestReward m_Reward;
         [JsonProperty("isReceived")]
         [SerializeField] private bool m_IsReceived;
+        #endregion
 
+        #region Properties
         public string Id => m_Id;
         public string Title => m_Title;
         public string Description => m_Description;
@@ -28,8 +31,10 @@ namespace CuteGothicCatcher.Core
         public QuestProgress Progress => m_Progress;
         public QuestReward Reward => m_Reward;
         public bool IsReceived => m_IsReceived;
-        public bool IsCompleted => m_Progress.IsComplete;
+        public bool IsComplete => m_Progress.IsComplete;
+        #endregion
 
+        #region Constructors
         public QuestData(QuestData data)
         {
             m_Id = data.Id;
@@ -48,7 +53,7 @@ namespace CuteGothicCatcher.Core
             QuestType type,
             QuestProgress progress,
             QuestReward reward,
-            bool isRevceived)
+            bool isReceived)
         {
             m_Id = id;
             m_Title = title;
@@ -56,7 +61,21 @@ namespace CuteGothicCatcher.Core
             m_Type = type;
             m_Progress = progress;
             m_Reward = reward;
-            m_IsReceived = isRevceived;
+            m_IsReceived = isReceived;
         }
+        #endregion
+
+        #region Methods
+        public void GiveReward()
+        {
+            m_Reward.Give();
+            m_IsReceived = true;
+        }
+
+        public void SetProgress(int value, bool isTotal)
+        {
+            m_Progress.SetProgress(value, isTotal);
+        }
+        #endregion
     }
 }

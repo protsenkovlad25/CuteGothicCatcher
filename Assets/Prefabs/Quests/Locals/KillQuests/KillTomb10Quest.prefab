@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8834897554665871033}
   - component: {fileID: -323153295421121603}
   m_Layer: 0
-  m_Name: KillSculls10Quest
+  m_Name: KillTomb10Quest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45,9 +45,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Data:
-    m_Id: killSculls10
-    m_Title: Kill Sculls
-    m_Description: Need kill # sculls
+    m_Id: killTomb10
+    m_Title: Crack Tombstones
+    m_Description: Need to crack # tombstones
     m_Type: 1
     m_Progress:
       m_Current: 0
@@ -56,4 +56,4 @@ MonoBehaviour:
       m_Type: 1
       m_Value: 10
     m_IsReceived: 0
-  m_EntityType: 2
+  m_EntityType: 4

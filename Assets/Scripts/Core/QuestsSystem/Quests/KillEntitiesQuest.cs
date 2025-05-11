@@ -8,16 +8,20 @@ namespace CuteGothicCatcher.Core
     {
         [SerializeField] private EntityType m_EntityType;
 
-        public EntityType EntityType => m_EntityType;
-
-        public override void Init()
+        protected override void Subscribe()
         {
-            base.Init();
+            EventManager.OnEntityDied.AddListener(EntityDied);
         }
 
-        public override void UpdateProgress(int value)
+        protected override void Unsubscribe()
         {
-            base.UpdateProgress(value);
+            EventManager.OnEntityDied.RemoveListener(EntityDied);
+        }
+
+        private void EntityDied(BaseEntity entity)
+        {
+            if (entity.Data.EntityType == m_EntityType)
+                UpdateProgress(1);
         }
     }
 }

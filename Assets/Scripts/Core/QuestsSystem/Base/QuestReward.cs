@@ -5,7 +5,7 @@ using UnityEngine;
 namespace CuteGothicCatcher.Core
 {
     [System.Serializable]
-    public class QuestReward
+    public struct QuestReward
     {
         [JsonProperty("type")]
         [SerializeField] private QuestRewardType m_Type;

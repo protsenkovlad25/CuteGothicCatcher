@@ -927,6 +927,7 @@ MonoBehaviour:
   m_GameContant: {fileID: 1194178300}
   m_GameOverPanel: {fileID: 519424875}
   m_ScoreController: {fileID: 236092179}
+  m_QuestsController: {fileID: 671677527}
   m_EntitiesController: {fileID: 1434508293}
   m_InterfaceController: {fileID: 1574091123}
   m_GameTimerController: {fileID: 1374163760}
