@@ -16,10 +16,15 @@ namespace CuteGothicCatcher.Core
 
         #region Items Events
         public static UnityEvent<EntityType, int, int> OnChangedItemCount = new();
+        public static UnityEvent<EntityType> OnPlacedItem = new();
 
         public static void ChangedItemCount(EntityType type, int oldCount, int newCount)
         {
             OnChangedItemCount?.Invoke(type, oldCount, newCount);
+        }
+        public static void PlacedItem(EntityType type)
+        {
+            OnPlacedItem?.Invoke(type);
         }
         #endregion
 
@@ -47,6 +52,24 @@ namespace CuteGothicCatcher.Core
         public static void SetExtraTime(float time)
         {
             OnSetExtraTime?.Invoke(time);
+        }
+        #endregion
+
+        #region Quests Events
+        public static UnityEvent<string> OnCompletedQuest = new();
+
+        public static void CompleteQuest(string id)
+        {
+            OnCompletedQuest?.Invoke(id);
+        }
+        #endregion
+
+        #region Objects Events
+        public static UnityEvent OnCatClick = new();
+
+        public static void ClickCat()
+        {
+            OnCatClick?.Invoke();
         }
         #endregion
     }

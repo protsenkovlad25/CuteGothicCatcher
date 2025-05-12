@@ -1,11 +1,12 @@
 using CuteGothicCatcher.UI;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace CuteGothicCatcher.Core.Controllers
 {
     public class GameTimerController : Controller
     {
-        public System.Action OnTimerEnd;
+        public static UnityEvent OnTimerEnd = new();
 
         [SerializeField] private GameTimer m_GameTimer;
 

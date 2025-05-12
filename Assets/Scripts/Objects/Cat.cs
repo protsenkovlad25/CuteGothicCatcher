@@ -1,5 +1,4 @@
 using CuteGothicCatcher.Core;
-using CuteGothicCatcher.Core.Controllers;
 using CuteGothicCatcher.Core.Interfaces;
 using System.Collections.Generic;
 using System.Linq;
@@ -57,7 +56,8 @@ namespace CuteGothicCatcher.Objects
         private void Click()
         {
             SpawnParticle();
-            PlayerController.PlayerData.ClickOnCat();
+
+            EventManager.ClickCat();
         }
 
         private void SpawnParticle()

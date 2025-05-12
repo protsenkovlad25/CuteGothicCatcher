@@ -10,6 +10,7 @@ namespace CuteGothicCatcher.Core
         private static TimerGameModeConfig m_TimerGMConfig;
         private static StoryGameModeConfig m_StoryGMConfig;
         private static LevelsGameModeConfig m_LevelsGMConfig;
+        private static QuestsConfig m_QuestsConfig;
         #endregion
 
         #region Properties
@@ -17,27 +18,30 @@ namespace CuteGothicCatcher.Core
         public static TimerGameModeConfig TimerGMConfig => m_TimerGMConfig;
         public static StoryGameModeConfig StoryGMConfig => m_StoryGMConfig;
         public static LevelsGameModeConfig LevelsGMConfig => m_LevelsGMConfig;
+        public static QuestsConfig QuestsConfig => m_QuestsConfig;
         #endregion
 
         #region Load Methods
-        public static void LoadObjects()
+        public static void LoadAll()
         {
-            LoadEntitiesConfig();
-            LoadGameModeConfigs();
+            LoadConfigs();
+            LoadObjects();
         }
-        private static void LoadEntitiesConfig()
+        private static void LoadConfigs()
         {
             m_EntitiesConfig = Resources.Load<EntitiesConfig>("Configs/Entities Config");
-        }
-        private static void LoadGameModeConfigs()
-        {
+
             m_TimerGMConfig = Resources.Load<TimerGameModeConfig>("Configs/TimerGameMode Config");
             m_StoryGMConfig = Resources.Load<StoryGameModeConfig>("Configs/StoryGameMode Config");
             m_LevelsGMConfig = Resources.Load<LevelsGameModeConfig>("Configs/LevelsGameMode Config");
-        }
-        #endregion
 
-        #region Get Methods
+            m_QuestsConfig = Resources.Load<QuestsConfig>("Configs/Quests Config");
+            m_QuestsConfig.Init();
+        }
+        private static void LoadObjects()
+        {
+
+        }
         #endregion
     }
 }

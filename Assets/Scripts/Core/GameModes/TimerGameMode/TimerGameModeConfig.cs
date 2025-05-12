@@ -32,6 +32,10 @@ namespace CuteGothicCatcher.Core
         [Header("Spawn entities")]
         [SerializeField] private List<SpawnEntityWeight> m_SpawnEntities;
 
+        [Header("Quests Data")]
+        [Range(0, 5)]
+        [SerializeField] private int m_QuestsCount;
+
         public float TimerTime => m_TimerTime * 60;
         public float Intensity => m_SpawnIntensity;
         public float MultiplierSpawnedEntity => m_MultiplierSpawnedEntity;
@@ -40,6 +44,7 @@ namespace CuteGothicCatcher.Core
         public int MaxMultipleSpawnCount => m_MaxMultipleSpawnCount;
         public float MinMultipleSpawnChance => m_MinMultipleSpawnChance;
         public float MaxMultipleSpawnChance => m_MaxMultipleSpawnChance;
+        public int QuestsCount => m_QuestsCount;
         public List<SpawnEntityWeight> SpawnEntities => m_SpawnEntities;
 
         private void OnValidate()

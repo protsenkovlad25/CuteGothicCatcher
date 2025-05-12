@@ -16,9 +16,9 @@ namespace CuteGothicCatcher.Core
         public float PassedTime => m_PassedTime;
         public float CurrentTime => m_Time - m_PassedTime;
 
-        public Timer(float time)
+        public Timer(float time, float passedTime = 0)
         {
-            m_PassedTime = 0;
+            m_PassedTime = passedTime;
             m_Time = time;
         }
 

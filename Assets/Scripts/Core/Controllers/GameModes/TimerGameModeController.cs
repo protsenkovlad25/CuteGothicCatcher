@@ -3,15 +3,19 @@ using CuteGothicCatcher.UI;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace CuteGothicCatcher.Core.Controllers
 {
     public class TimerGameModeController : GameModeController
     {
+        public static UnityEvent OnEndTimerGame = new();
+
         [SerializeField] private TimerGameOverPanel m_GameOverPanel;
 
         [Header("Controllers")]
         [SerializeField] private ScoreController m_ScoreController;
+        [SerializeField] private QuestsController m_QuestsController;
         [SerializeField] private EntitiesController m_EntitiesController;
         [SerializeField] private InterfaceController m_InterfaceController;
         [SerializeField] private GameTimerController m_GameTimerController;
@@ -38,7 +42,7 @@ namespace CuteGothicCatcher.Core.Controllers
             InitSpawnEntities();
             InitEntitiesLists();
 
-            m_GameTimerController.OnTimerEnd = GameTimerEnd;
+            GameTimerController.OnTimerEnd.AddListener(GameTimerEnd);
 
             EventManager.OnCollectEntity.AddListener(CollectEntity);
             EventManager.OnEntityDied.AddListener(DieEntity);
@@ -81,14 +85,10 @@ namespace CuteGothicCatcher.Core.Controllers
             InitEntitiesLists();
 
             m_ScoreController.ClearScore();
+            m_QuestsController.CreateLocalQuests(m_Config.QuestsCount);
 
             m_GameTimerController.SetTimerTime(m_Config.TimerTime);
             m_GameTimerController.StartTimer();
-
-            //m_EntitiesController.SpawnEntities(EntityType.Heart, 10);
-            //m_EntitiesController.SpawnEntities(EntityType.Scull, 10);
-            //m_EntitiesController.SpawnEntities(EntityType.Web, 8);
-            //m_EntitiesController.SpawnEntities(EntityType.Tombstone, 5);
         }
         public override void StopGame()
         {
@@ -98,9 +98,12 @@ namespace CuteGothicCatcher.Core.Controllers
             m_PlacedItemsContoller.DisactiveSlots();
             m_GameTimerController.DisableTimer();
             m_ScoreController.SaveScore();
+            m_QuestsController.DestroyLocalQuests();
         }
         public override void RestartGame()
         {
+            m_QuestsController.DestroyLocalQuests();
+
             m_EntitiesController.RemoveEntities();
             m_InterfaceController.ClosePanel(typeof(TimerGameOverPanel));
 
@@ -111,8 +114,10 @@ namespace CuteGothicCatcher.Core.Controllers
         private void GameTimerEnd()
         {
             OnGameEnd?.Invoke();
+            OnEndTimerGame?.Invoke();
 
             m_ScoreController.SaveScore();
+            m_QuestsController.GiveQuestRewards();
 
             m_GameOverPanel.SetScore(m_ScoreController.CurrentScore);
             m_GameOverPanel.SetHearts(m_CollectedHearts);

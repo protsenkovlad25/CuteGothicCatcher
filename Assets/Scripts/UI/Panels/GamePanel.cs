@@ -12,6 +12,7 @@ namespace CuteGothicCatcher.UI
         [SerializeField] private GameTimer m_GameTimer;
         [SerializeField] private ScorePanel m_ScorePanel;
         [SerializeField] private PlacedItemsPanel m_PlacedItemsPanel;
+        [SerializeField] private QuestCheckMarksPanel m_QuestCheckMarksPanel;
 
         private Vector2 m_StartButtonPos;
 
@@ -43,6 +44,7 @@ namespace CuteGothicCatcher.UI
                 m_GameTimer.Open();
                 m_ScorePanel.Open();
                 m_PlacedItemsPanel.Open();
+                m_QuestCheckMarksPanel.Open();
             });
 
             if (onEndAction != null)
@@ -65,6 +67,7 @@ namespace CuteGothicCatcher.UI
                 m_GameTimer.Close();
                 m_ScorePanel.Close();
                 m_PlacedItemsPanel.Close();
+                m_QuestCheckMarksPanel.Close();
             });
             closeSeq.AppendCallback(() => { gameObject.SetActive(false); });
 
