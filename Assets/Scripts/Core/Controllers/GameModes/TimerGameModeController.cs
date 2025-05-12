@@ -89,11 +89,6 @@ namespace CuteGothicCatcher.Core.Controllers
 
             m_GameTimerController.SetTimerTime(m_Config.TimerTime);
             m_GameTimerController.StartTimer();
-
-            //m_EntitiesController.SpawnEntities(EntityType.Heart, 10);
-            //m_EntitiesController.SpawnEntities(EntityType.Scull, 10);
-            //m_EntitiesController.SpawnEntities(EntityType.Web, 8);
-            //m_EntitiesController.SpawnEntities(EntityType.Tombstone, 5);
         }
         public override void StopGame()
         {

@@ -12,7 +12,9 @@ namespace CuteGothicCatcher.Core
         [JsonProperty("value")]
         [SerializeField] private int m_Value;
 
+        [JsonIgnore]
         public QuestRewardType Type => m_Type;
+        [JsonIgnore]
         public int Value => m_Value;
 
         public QuestReward(QuestRewardType type, int value)
@@ -26,7 +28,8 @@ namespace CuteGothicCatcher.Core
             switch (m_Type)
             {
                 case QuestRewardType.Hearts:
-                    PlayerController.PlayerData.CollectEntity(Entities.EntityType.Heart, m_Value);
+                    for (int i = 0; i < m_Value; i++)
+                        PlayerController.PlayerData.CollectEntity(Entities.EntityType.Heart, 0);
                     break;
 
                 default:

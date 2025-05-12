@@ -17,7 +17,7 @@ namespace CuteGothicCatcher.Core
 
         private void StartTimer()
         {
-            m_Timer = new Timer(m_Data.Progress.Required);
+            m_Timer = new Timer(m_Data.Progress.Required * 60, m_Data.Progress.Current * 60);
             m_Timer.OnTimesUp.AddListener(EndTimer);
         }
         private void StopTimer()
@@ -32,7 +32,7 @@ namespace CuteGothicCatcher.Core
         private void Update()
         {
             m_Timer?.Update();
-            UpdateProgress((int)m_Timer.PassedTime, true);
+            UpdateProgress(m_Timer.PassedTime / 60f, true);
         }
     }
 }

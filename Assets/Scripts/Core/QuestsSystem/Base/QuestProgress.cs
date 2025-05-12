@@ -1,3 +1,4 @@
+using Newtonsoft.Json;
 using UnityEngine;
 
 namespace CuteGothicCatcher.Core
@@ -5,22 +6,35 @@ namespace CuteGothicCatcher.Core
     [System.Serializable]
     public struct QuestProgress
     {
-        [SerializeField] private int m_Current;
-        [SerializeField] private int m_Required;
+        [JsonProperty("current")]
+        [SerializeField] private float m_Current;
+        [JsonProperty("required")]
+        [SerializeField] private float m_Required;
 
-        public int Current => m_Current;
-        public int Required => m_Required;
+        [JsonIgnore]
+        public float Current => (float)System.Math.Round(m_Current, 2);
+        [JsonIgnore]
+        public float Required => (float)System.Math.Round(m_Required, 2);
+        [JsonIgnore]
         public bool IsComplete => m_Current >= m_Required;
 
-        public QuestProgress(int current, int required)
+        public QuestProgress(float current, float required)
         {
             m_Current = current;
             m_Required = required;
         }
 
-        public void SetProgress(int value, bool isTotal)
+        public void SetProgress(float value, bool isTotal)
         {
-            m_Current = isTotal ? value : m_Current + value;
+            if (isTotal)
+            {
+                if (value > m_Current)
+                    m_Current = value;
+            }
+            else
+            {
+                m_Current += value;
+            }
         }
     }
 }

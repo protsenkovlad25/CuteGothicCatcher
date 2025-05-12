@@ -2712,6 +2712,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 827be2825db0ed044a8edc0e2a84bc5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Direction: 0
+  m_OpenTime: 0
+  m_CloseTime: 0
+  m_ImageFadeTime: 0.1
+  m_ButtonsOpenTime: 0.2
+  m_ButtonsOpenIntervalTime: 2
+  m_ButtonsCloseTime: 0.1
+  m_OtherOpenTime: 0.2
+  m_OtherCloseTime: 0.1
   m_ScorePanel: {fileID: 1661626653368100301}
   m_HeartsPanel: {fileID: 6394372303915554969}
   m_SpendedHeartsPanel: {fileID: 2502437505002941879}
@@ -2727,12 +2736,6 @@ MonoBehaviour:
   m_ScoreValueText: {fileID: 5190040447513261146}
   m_HeartsValueText: {fileID: 6752619754108843608}
   m_SpendedHeartsValueText: {fileID: 1006292235064915201}
-  m_ImageFadeTime: 0.1
-  m_ButtonsOpenTime: 0.2
-  m_ButtonsOpenIntervalTime: 2
-  m_ButtonsCloseTime: 0.1
-  m_OtherOpenTime: 0.2
-  m_OtherCloseTime: 0.1
 --- !u!1001 &5924762972336578653
 PrefabInstance:
   m_ObjectHideFlags: 0

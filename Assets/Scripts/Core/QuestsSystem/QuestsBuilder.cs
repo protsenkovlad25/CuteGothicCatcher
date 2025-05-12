@@ -8,9 +8,9 @@ namespace CuteGothicCatcher.Core
     {
         private static QuestsConfig m_Config => PoolResources.QuestsConfig;
 
-        public static Dictionary<string, Quest> CreateGlobalQuests(Transform parent)
+        public static List<Quest> CreateGlobalQuests(Transform parent)
         {
-            Dictionary<string, Quest> globalQuests = new Dictionary<string, Quest>();
+            List<Quest> globalQuests = new List<Quest>();
             List<QuestData> questDatas = QuestsLoader.LoadQuestDatas();
 
             QuestData newData;
@@ -20,7 +20,7 @@ namespace CuteGothicCatcher.Core
                 {
                     newData = CreateQuestData(data);
 
-                    globalQuests.Add(newData.Id, CreateQuest(m_Config.GetQuestPrefab(newData.Id), newData, parent));
+                    globalQuests.Add(CreateQuest(m_Config.GetQuestPrefab(newData.Id), newData, parent));
                 }
             }
 

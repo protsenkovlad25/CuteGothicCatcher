@@ -24,13 +24,21 @@ namespace CuteGothicCatcher.Core
         #endregion
 
         #region Properties
+        [JsonIgnore]
         public string Id => m_Id;
+        [JsonIgnore]
         public string Title => m_Title;
-        public string Description => m_Description;
+        [JsonIgnore]
+        public string Description => m_Description.Replace("#", m_Progress.Required.ToString());
+        [JsonIgnore]
         public QuestType Type => m_Type;
+        [JsonIgnore]
         public QuestProgress Progress => m_Progress;
+        [JsonIgnore]
         public QuestReward Reward => m_Reward;
+        [JsonIgnore]
         public bool IsReceived => m_IsReceived;
+        [JsonIgnore]
         public bool IsComplete => m_Progress.IsComplete;
         #endregion
 
@@ -72,7 +80,7 @@ namespace CuteGothicCatcher.Core
             m_IsReceived = true;
         }
 
-        public void SetProgress(int value, bool isTotal)
+        public void SetProgress(float value, bool isTotal)
         {
             m_Progress.SetProgress(value, isTotal);
         }

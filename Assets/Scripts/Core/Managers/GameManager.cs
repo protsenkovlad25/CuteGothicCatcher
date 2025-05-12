@@ -25,11 +25,12 @@ namespace CuteGothicCatcher.Core
 
             PlayerController.Init();
 
+            m_InterfaceController.Init();
+
             m_GameController.Init();
             m_ScoreController.Init();
             m_QuestsController.Init();
             m_EntitiesController.Init();
-            m_InterfaceController.Init();
             m_GameTimerController.Init();
             m_PlacedItemsContoller.Init();
 
@@ -96,7 +97,7 @@ namespace CuteGothicCatcher.Core
         }
         #endregion
 
-        private void ChangeTimeScale(float timeScale)
+        public void ChangeTimeScale(float timeScale)
         {
             Debug.Log($"Time scale changed to - {timeScale}");
 

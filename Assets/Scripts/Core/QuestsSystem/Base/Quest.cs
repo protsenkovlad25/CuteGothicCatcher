@@ -7,6 +7,7 @@ namespace CuteGothicCatcher.Core
     public abstract class Quest : MonoBehaviour, IIniting
     {
         public System.Action OnCompleted;
+        public System.Action OnChangedProgress;
 
         [SerializeField] protected QuestData m_Data;
 
@@ -33,7 +34,7 @@ namespace CuteGothicCatcher.Core
             }
         }
 
-        public virtual void UpdateProgress(int value, bool isTotal = false)
+        public virtual void UpdateProgress(float value, bool isTotal = false)
         {
             if (!m_Data.IsComplete)
             {
@@ -41,6 +42,8 @@ namespace CuteGothicCatcher.Core
 
                 if (m_Data.IsComplete)
                     Complete();
+
+                OnChangedProgress?.Invoke();
             }
             else return;
         }
